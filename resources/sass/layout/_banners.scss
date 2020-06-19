@@ -1,0 +1,16 @@
+.banners {
+    padding:0 rem-calc(15);
+    .flex{
+        display: flex;
+        justify-content:space-between;
+        flex-wrap: wrap;
+    }
+    .banner{
+        width:49%;
+        @include breakpoint(medium down){
+            width: 100%;
+            text-align: center;
+            margin: 5px 0;
+        }
+    }
+}

@@ -1,0 +1,123 @@
+.footer-top {
+    background-color: #dcdcdc;
+    padding: rem-calc(30) 0;
+    &--helper {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        @include breakpoint(large down) {
+            align-items: stretch;
+        }
+        @include breakpoint(tablet down) {
+            padding-left: 0;
+        }
+        @include breakpoint(medium down) {
+            flex-wrap: wrap;
+        }
+        & > .login-form {
+            width: 48.5%;
+            padding-top: rem-calc(65);
+            @include breakpoint(1300px down) {
+                width: 54%;
+            }
+            @include breakpoint(large down) {
+                padding-top: rem-calc(35);
+            }
+            @include breakpoint(medium down) {
+                width: 100%;
+                padding-top: rem-calc(15);
+            }
+            @include breakpoint(small down) {
+                text-align: center;
+            }
+            .button {
+                min-width: 140px;
+            }
+        }
+        & > .register-form {
+            width: 44%;
+            background-color: #ecedf0;
+            padding: rem-calc(55) rem-calc(45) rem-calc(21) rem-calc(33);
+            @include breakpoint(large down) {
+                padding-top: rem-calc(35);
+            }
+            @include breakpoint(tablet down) {
+                padding-left: rem-calc(15);
+                padding-right: rem-calc(15);
+            }
+            @include breakpoint(medium down) {
+                width: 100%;
+                padding-top: rem-calc(15);
+            }
+        }
+    }
+    .contact--bar {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        @include breakpoint(large down) {
+            flex-wrap: wrap;
+            margin-top: rem-calc(10);
+        }
+    }
+    .title {
+        @include font(14, 17, 0);
+        color: #7e7e7e;
+    }
+    .item-with-icon {
+        position: relative;
+        padding-left: rem-calc(35);
+        margin-top: rem-calc(7);
+        @include breakpoint(large down) {
+            width: 48%;
+        }
+        @include breakpoint(small down) {
+            width: 100%;
+            text-align: center;
+            padding-left: 0;
+            margin-top: rem-calc(10);
+        }
+        &--margin {
+            margin-left: rem-calc(70);
+            @include breakpoint(large down) {
+                margin-left: 0;
+            }
+        }
+        .icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #3e5fd2;
+            font-size: rem-calc(27);
+            @include breakpoint(small down) {
+                position: relative;
+                left: auto;
+                top: auto;
+                display: block;
+            }
+        }
+        a {
+            @include font(15, 18, 0);
+            font-weight: 600;
+            color: #222222;
+            transition: .3s ease-in-out;
+            @include on-event() {
+                color: $theme;
+            }
+        }
+        span {
+            display: block;
+            @include font(12, 22, 0);
+            color: rgba(#7e7e7e, .8);
+        }
+    }
+    .button {
+        margin-left: rem-calc(25);
+        @include breakpoint(large down) {
+            display: block;
+            width: 100%;
+            margin-left: 0;
+            margin-top: rem-calc(20);
+        }
+    }
+}

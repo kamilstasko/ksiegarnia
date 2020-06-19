@@ -1,0 +1,206 @@
+.slider {
+	position: relative;
+	//height: rem-calc(650);
+	height: auto;
+	overflow: visible;
+	@include breakpoint(tablet down) {
+		margin-top: rem-calc(80);
+	}
+	@include breakpoint(medium down) {
+		margin-top: rem-calc(150);
+		height: rem-calc(550);
+	}
+
+	.swiper-button-prev {
+		background-size: 55px 44px !important;
+		background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA0OTIgNDkyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0OTIgNDkyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjEyOHB4IiBoZWlnaHQ9IjEyOHB4Ij4KPGc+Cgk8Zz4KCQk8cGF0aCBkPSJNMTk4LjYwOCwyNDYuMTA0TDM4Mi42NjQsNjIuMDRjNS4wNjgtNS4wNTYsNy44NTYtMTEuODE2LDcuODU2LTE5LjAyNGMwLTcuMjEyLTIuNzg4LTEzLjk2OC03Ljg1Ni0xOS4wMzJsLTE2LjEyOC0xNi4xMiAgICBDMzYxLjQ3NiwyLjc5MiwzNTQuNzEyLDAsMzQ3LjUwNCwwcy0xMy45NjQsMi43OTItMTkuMDI4LDcuODY0TDEwOS4zMjgsMjI3LjAwOGMtNS4wODQsNS4wOC03Ljg2OCwxMS44NjgtNy44NDgsMTkuMDg0ICAgIGMtMC4wMiw3LjI0OCwyLjc2LDE0LjAyOCw3Ljg0OCwxOS4xMTJsMjE4Ljk0NCwyMTguOTMyYzUuMDY0LDUuMDcyLDExLjgyLDcuODY0LDE5LjAzMiw3Ljg2NGM3LjIwOCwwLDEzLjk2NC0yLjc5MiwxOS4wMzItNy44NjQgICAgbDE2LjEyNC0xNi4xMmMxMC40OTItMTAuNDkyLDEwLjQ5Mi0yNy41NzIsMC0zOC4wNkwxOTguNjA4LDI0Ni4xMDR6IiBmaWxsPSIjZmZmZmZmIi8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==) !important;
+		&.swiper-button-disabled{
+			display: none !important;
+		}
+	}
+
+
+	.swiper-button-next {
+		background-size: 55px 44px !important;
+		background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA0OTIuMDA0IDQ5Mi4wMDQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ5Mi4wMDQgNDkyLjAwNDsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIxMjhweCIgaGVpZ2h0PSIxMjhweCI+CjxnPgoJPGc+CgkJPHBhdGggZD0iTTM4Mi42NzgsMjI2LjgwNEwxNjMuNzMsNy44NkMxNTguNjY2LDIuNzkyLDE1MS45MDYsMCwxNDQuNjk4LDBzLTEzLjk2OCwyLjc5Mi0xOS4wMzIsNy44NmwtMTYuMTI0LDE2LjEyICAgIGMtMTAuNDkyLDEwLjUwNC0xMC40OTIsMjcuNTc2LDAsMzguMDY0TDI5My4zOTgsMjQ1LjlsLTE4NC4wNiwxODQuMDZjLTUuMDY0LDUuMDY4LTcuODYsMTEuODI0LTcuODYsMTkuMDI4ICAgIGMwLDcuMjEyLDIuNzk2LDEzLjk2OCw3Ljg2LDE5LjA0bDE2LjEyNCwxNi4xMTZjNS4wNjgsNS4wNjgsMTEuODI0LDcuODYsMTkuMDMyLDcuODZzMTMuOTY4LTIuNzkyLDE5LjAzMi03Ljg2TDM4Mi42NzgsMjY1ICAgIGM1LjA3Ni01LjA4NCw3Ljg2NC0xMS44NzIsNy44NDgtMTkuMDg4QzM5MC41NDIsMjM4LjY2OCwzODcuNzU0LDIzMS44ODQsMzgyLjY3OCwyMjYuODA0eiIgZmlsbD0iI0ZGRkZGRiIvPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=) !important;
+		&.swiper-button-disabled{
+			display: none !important;
+		}
+	}
+
+
+
+
+	.flag {
+		display: block;
+		position: absolute;
+		bottom: rem-calc(-55);
+		left: 70.5%;
+		z-index: 999;
+		display: flex;
+		flex-direction: column;
+		color: $dark-gray;
+		@include breakpoint(xlarge down) {
+			left: auto;
+			right: 4%;
+		}
+		@include breakpoint(medium down) {
+			left: 50%;
+			right: auto;
+			transform: translateX(-50%);
+			width: 100px;
+			bottom: -114px;
+		}
+		img {
+			background-color: $white;
+			padding: rem-calc(8);
+			@include breakpoint(phone down) {
+				max-width: rem-calc(100);
+			}
+		}
+		span {
+			display: block;
+			text-align: center;
+			@include font(12, 25, 75);
+			font-family: $second-font;
+		}
+	}
+	.swiper-container {
+		width: 100%;
+		height: 100%;
+		.wrapper {
+			position: relative;
+			height: rem-calc(650);
+			@include breakpoint(medium down) {
+				height: rem-calc(550);
+			}
+		}
+		.swiper-content {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding-top: rem-calc(220);
+			@include breakpoint(tablet down) {
+				padding-top: 0;
+			}
+			&-left {
+				width: 50%;
+				padding-left: rem-calc(77);
+				z-index: 9;
+				@include breakpoint(large down) {
+					background-color: rgba($white, .45);
+					width: 100%;
+				}
+				@include breakpoint(tablet down) {
+					margin-top: rem-calc(100);
+					padding: rem-calc(15 8 5);
+					text-align: center;
+				}
+			}
+			&-right {
+				position: absolute;
+				right: rem-calc(-15);
+				transition: .3s ease-in-out;
+				transition-delay: .3s;
+				opacity: 0;
+				bottom: rem-calc(-15);
+				z-index: 5;
+				&.active {
+					opacity: 1;
+					bottom: rem-calc(2);
+				}
+			}
+		}
+	}
+	.swiper-slide {
+		.swiper-back-image {
+			background-image: url("../../img/back.jpg");
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-position: center;
+			background-repeat: no-repeat;
+			transform: scale(1.005, 1.009);
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.swiper-head {
+		font-size: rem-calc(45);
+		font-weight: 700;
+		padding-bottom: rem-calc(10);
+		transition: .3s ease-in-out;
+		transition-delay: .5s;
+		margin-top: rem-calc(15);
+		opacity: 0;
+		color: $theme;
+		@include breakpoint(medium down) {
+			font-size: rem-calc(30);
+			line-height: 1;
+			p{
+				line-height: 1;
+			}
+		}
+		p {
+			color: $theme;
+		}
+		&.active {
+			opacity: 1;
+			margin-top: 0;
+		}
+	}
+	.swiper-desc {
+		font-size: rem-calc(15);
+		font-family: $second-font;
+		font-weight: 400;
+		padding-bottom: rem-calc(30);
+		transition: .3s ease-in-out;
+		transition-delay: .7s;
+		margin-top: rem-calc(15);
+		opacity: 0;
+		color: $theme;
+		@include breakpoint(medium down) {
+			font-size: rem-calc(13);
+			br {
+				display: none;
+			}
+		}
+		p {
+			color: $theme;
+		}
+		&.active {
+			opacity: 1;
+			margin-top: 0;
+		}
+	}
+	.swiper-btn {
+		transition: .3s ease-in-out;
+		transition-delay: .9s;
+		margin-top: rem-calc(15);
+		opacity: 0;
+		&.active {
+			opacity: 1;
+			margin-top: 0;
+		}
+	}
+	.swiper-image {
+		transform: scale(0.995);
+	}
+}
+
+.rwd-slider{
+	display: none;
+	@include breakpoint (tablet down) {
+		display: block;
+	}
+}
+
+.desktop-slider {
+	display: block;
+	@include breakpoint (tablet down) {
+		display: none;
+	}
+}

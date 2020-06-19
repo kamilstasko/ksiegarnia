@@ -1,0 +1,30 @@
+.standard-page.aboutus {
+	.page-content {
+		&--helper {
+			display: flex;
+			align-items: flex-start;
+			justify-content: space-between;
+			@include breakpoint(tablet down) {
+				flex-wrap: wrap;
+				text-align: center;
+			}
+		}
+		&__left {
+			width: 48%;
+			@include breakpoint(tablet down) {
+				width: 100%;
+			}
+		}
+		&__right {
+			width: 45%;
+			@include breakpoint(tablet down) {
+				width: 100%;
+				text-align: center;
+				margin-top: rem-calc(17);
+			}
+			.image--helper {
+				margin-bottom: rem-calc(30);
+			}
+		}
+	}
+}

@@ -1,0 +1,139 @@
+.r-tabs-nav {
+	overflow: hidden;
+	@include reset;
+	@include clearfix;
+	display: flex;
+	text-align: center;
+	position: relative;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: center;
+	@include breakpoint(medium down) {
+		justify-content: center;
+	}
+	li {
+		z-index: 2;
+		&:first-child {
+			a {
+				padding-left: 0;
+			}
+		}
+		&:last-child {
+			a {
+				border-right: none;
+			}
+		}
+	}
+	a {
+		color: #999;
+		margin: 0 30px;
+	}
+	h3 {
+		margin: 0;
+	}
+	a, h3 {
+		float: left;
+		font-size: 21px;
+		font-weight: 400;
+		position: relative;
+		letter-spacing: 0.015em;
+		font-family: $body-font-family;
+		text-transform: uppercase;
+		transition: all 0.25s ease-in-out;
+	}
+	.r-tabs-state-active a {
+		h3 {
+			color: $theme;
+			font-weight: 600;
+		}
+	}
+}
+
+.r-tabs-accordion-title, .r-tabs-state-default {
+	display: none;
+}
+
+.tabs-container {
+	&.small-tabs {
+		.r-tabs-panel {
+			padding: rem-calc(25 30);
+			font-family: $second-font;
+			color: $dark-gray;
+			font-size: rem-calc(15);
+			line-height: 1.7;
+			@include breakpoint(phone down) {
+				padding: rem-calc(15 10);
+			}
+			p {
+				font-family: $second-font;
+				color: $dark-gray;
+				font-size: rem-calc(15);
+				line-height: 1.7;
+			}
+		}
+		.r-tabs-nav {
+			margin: rem-calc(45 24 0);
+			@include breakpoint(tablet down) {
+				margin: rem-calc(25 10 0);
+			}
+			.r-tabs-tab {
+				border: 1px solid #c1c9d2;
+				margin: rem-calc(4 5);
+				@include breakpoint(phone down) {
+					width: 100%;
+					margin: rem-calc(4 0);
+				}
+			}
+			a {
+				margin: 0;
+				padding: rem-calc(6 26);
+				@include breakpoint(medium down) {
+					float: none;
+					overflow: hidden;
+					display: block;
+					width: 100%;
+					text-align: center;
+				}
+			}
+			.r-tabs-title {
+				font-size: rem-calc(20);
+				font-weight: 400;
+				color: $theme;
+				text-transform: none;
+				margin: 0;
+				transition: all .2s ease-in-out;
+				@include breakpoint(medium down) {
+					display: block;
+					width: 100%;
+					text-align: center;
+				}
+			}
+
+			.r-tabs-state-active {
+				background-color: $theme;
+				pointer-events: none;
+				border: 1px solid $theme;
+				margin: rem-calc(4 5);
+				@include breakpoint(phone down) {
+					margin: rem-calc(4 0);
+				}
+				a, .r-tabs-title {
+					color: $white;
+				}
+			}
+		}
+	}
+}
+
+.tab-content {
+	background-color: #fff;
+	padding: rem-calc(40) 0;
+}
+
+.r-tabs-tab {
+	display: initial;
+}
+
+.r-tabs-panel {
+	min-height: 0 !important;
+}

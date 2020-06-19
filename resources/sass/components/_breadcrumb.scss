@@ -1,0 +1,38 @@
+.breadcrumb{
+    float:left;
+    width: 100%;
+    padding:14px 0;
+    border-bottom:1px solid #e6e6e6;
+
+    @include breakpoint(tablet down){
+        display:none;
+    }
+
+    ol{
+        margin: 0;
+        display:flex;
+        align-items:center;
+        li{
+            list-style-type:none;
+            float:left;
+
+            &:after{
+                content: "-";
+                float:right;
+                margin:0 5px;
+            }
+
+            &:last-child{
+                &:after{
+                    display:none;
+                }
+            }
+
+            a{
+                font-size:13px;
+                color:#656565;
+                text-transform: none;
+            }
+        }
+    }
+}

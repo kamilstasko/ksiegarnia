@@ -1,0 +1,53 @@
+.standard-page {
+	padding: rem-calc(25 0);
+	@include breakpoint(phone down) {
+		padding: rem-calc(10 0);
+	}
+	.standard-content {
+		border-top: 1px solid $light-gray;
+		padding: rem-calc(55 0 70);
+		@include breakpoint(phone down) {
+			padding: rem-calc(35 0);
+		}
+		.image {
+			img {
+				width: 100%;
+			}
+		}
+	}
+	.cke-content {
+		max-width: 100%;
+		font-family: $second-font;
+		text-align: inherit;
+		@include font(15, 25, 25);
+	}
+	.content {
+		@include clearfix;
+		@include breakpoint(tablet down) {
+			text-align: center;
+		}
+		p {
+			font-weight: 400;
+			margin: em(30) 0;
+			line-height: 1.8;
+			color: #7b7b82;
+			text-align: justify;
+			@include breakpoint(large down) {
+				margin: rem-calc(15) 0;
+			}
+		}
+		@include headings() {
+			margin-top: rem-calc(15);
+			@include breakpoint(tablet down) {
+				width: 100%;
+			}
+		}
+		img {
+			margin: rem-calc(30 10);
+			@include breakpoint(tablet down) {
+				float: none;
+				margin: rem-calc(15) 0;
+			}
+		}
+	}
+}

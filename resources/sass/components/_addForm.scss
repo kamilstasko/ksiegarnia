@@ -1,0 +1,91 @@
+.addForm {
+	float: left;
+	width: 100%;
+	.formTitle {
+		font-size: 35px;
+		font-weight: 500;
+		color: #2f2d2c;
+		font-family: $body-font-family;
+		text-transform: uppercase;
+	}
+
+	.buttons {
+		//float:left;
+		width: 100%;
+		//max-width:450px;
+		text-align: center;
+
+		margin-top: 45px;
+		.button {
+			//float:right;
+			margin: rem-calc(20) 0;
+		}
+	}
+
+	.formSection {
+		float: left;
+		width: 100%;
+		margin-top: 40px;
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&__title {
+			font-weight: 500;
+			color: #2f2d2c;
+			font-family: $body-font-family;
+			text-transform: uppercase;
+			font-size: 24px;
+		}
+
+		&__content {
+			width: 100%;
+
+			.row {
+				width: 100%;
+				display: flex;
+				align-items: center;
+
+				@include breakpoint(medium down) {
+					flex-wrap: wrap;
+				}
+
+				& + .row {
+					margin-top: 15px;
+				}
+			}
+
+			.inputHelper.field {
+				margin-bottom: 0;
+				max-width: 255px;
+				width: 100%;
+
+				input[data-error]:not([type="file"]),
+				textarea[data-error],
+				select[data-error] {
+					border: 1px solid red;
+				}
+			}
+
+			label {
+				margin-right: 15px;
+				font-weight: 500;
+
+				width: 15%;
+
+				@include breakpoint(medium down) {
+					width: 100%;
+				}
+
+				&.require {
+					&:after {
+						content: '*';
+						color: red;
+						padding-left: 5px;
+					}
+				}
+			}
+		}
+	}
+}

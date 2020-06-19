@@ -1,0 +1,46 @@
+.top-banner {
+	width: 100%;
+	padding-top: rem-calc(10);
+	@include breakpoint(medium down) {
+		padding-top: rem-calc(100);
+	}
+	.main-title {
+		font-size: rem-calc(48);
+		color: $theme;
+		text-transform: uppercase;
+		padding-top: rem-calc(10);
+		@include breakpoint(phone down) {
+			font-size: rem-calc(35);
+			line-height: 1.1;
+		}
+		span {
+			display: block;
+			width: 100%;
+			font-size: rem-calc(25);
+			text-transform: none;
+			line-height: 1;
+		}
+	}
+
+	.entry {
+		width: 100%;
+		display: block;
+		font-size: 14px;
+		max-width: 749px;
+		margin: 0 auto;
+		text-align: center;
+		p {
+			font-weight: 300;
+			margin: 0;
+
+			& + * {
+				margin-top: 12px;
+			}
+		}
+
+		strong {
+			color: #2f2d2c;
+			font-weight: 600;
+		}
+	}
+}

@@ -1,0 +1,59 @@
+.load-more {
+	position: relative;
+	display: block;
+	@include font(14, 24, 0);
+	color: $theme;
+	text-align: center;
+	font-family: $second-font;
+	&.abs {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 1000;
+
+		&:before {
+			animation: spin 2.5s linear infinite;
+		}
+	}
+
+	&.bg {
+		background: rgba(255, 255, 255, .9);
+	}
+	&.bg-theme {
+		background: rgba($theme, .75);
+	}
+	&.bg-green {
+		background: rgba($theme-light, .75);
+		&:before {
+			color: $theme;
+		}
+	}
+
+	&.fixed {
+		position: fixed !important;
+		z-index: 10000000;
+	}
+
+	&:before {
+		@extend .icon;
+		@extend .icon-svgg03;
+		color: $theme-light;
+		font-size: rem-calc(30);
+		transform-origin: center;
+		animation: spin 2.75s linear infinite;
+		display: block;
+		margin-bottom: rem-calc(5);
+	}
+}
+
+
+@keyframes spin {
+	0% {transform: rotate(0) scale(1);}
+	50% {transform: rotate(180deg) scale(1.5);}
+	100% {transform: rotate(360deg) scale(1);}
+}

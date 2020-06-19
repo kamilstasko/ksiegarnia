@@ -1,0 +1,63 @@
+.producersList {
+	float: left;
+	width: 100%;
+	// background:#f2f2f2;
+	padding: 40px 0;
+
+	ul {
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+		position: relative;
+
+		&:before {
+			content: "";
+			position: absolute;
+			bottom: 102px;
+			width: 100%;
+			background: #d2d2d2;
+			left: 0;
+			right: 0;
+			height: 1px;
+		}
+
+		li {
+			width: 20%;
+			border-right: 1px solid #d2d2d2;
+			display: flex;
+			padding: 20px;
+			align-items: center;
+			justify-content: center;
+			height: 103px;
+
+			&:nth-child(5) {
+				& ~ li {
+					border-top: 1px solid #d2d2d2;
+				}
+			}
+
+			&:nth-child(5n) {
+				border-right: 0;
+			}
+
+			@include breakpoint(phone down) {
+				width: 33.33%;
+
+				&:nth-child(5n) {
+					border-right: 1px solid #d2d2d2;
+				}
+
+				&:nth-child(3n) {
+					border-right: 0;
+				}
+
+				&:nth-child(3) {
+					& ~ li {
+						border-top: 1px solid #d2d2d2;
+					}
+				}
+			}
+		}
+	}
+}

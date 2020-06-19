@@ -1,0 +1,284 @@
+.newsletter {
+	z-index: 11;
+	position: relative;
+	.newsletter-map {
+		display: block;
+		width: 52%;
+		height: rem-calc(325);
+		z-index: -1;
+		@include breakpoint(tablet down) {
+			width: 50%;
+		}
+		@include breakpoint(medium down) {
+			width: 100%;
+		}
+		&-image {
+			width: 100%;
+			height: 100%;
+			background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+	}
+	&__form-right {
+		width: 48%;
+		height: rem-calc(325);
+		background-color: #f8f8f8;
+		color: $theme;
+		@include breakpoint(tablet down) {
+			width: 50%;
+		}
+		@include breakpoint(phone down) {
+			width: 100%;
+			height: auto;
+		}
+	}
+	.hidden {
+		display: none;
+	}
+	&.fieldActive {
+		.expand_text {
+			display: block;
+		}
+	}
+	.expand_text {
+		margin-left: 10px;
+	}
+	form {
+		width: 100%;
+	}
+	a {
+		text-decoration: underline;
+		transition: all 0.2s ease-in-out;
+		&:hover {
+			color: #fff;
+			opacity: 0.6;
+		}
+	}
+	&__top-bar {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		padding: rem-calc(58 0 10 90);
+		@include breakpoint(tablet down) {
+			padding: rem-calc(40 0 0 20);
+		}
+		.title {
+			color: $theme;
+			font-size: rem-calc(30);
+			line-height: 1.4;
+			@include breakpoint(medium down) {
+				font-size: rem-calc(20);
+			}
+			span {
+				display: block;
+				font-size: rem-calc(50);
+				line-height: 1;
+				@include breakpoint(medium down) {
+					font-size: rem-calc(30);
+				}
+			}
+		}
+	}
+
+	&--helper {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		&.newsletter {
+			@include breakpoint(medium down) {
+				display: block;
+				text-align: left;
+			}
+		}
+		input {
+			margin: 0;
+			width: 100%;
+			height: 45px;
+
+			&[type="checkbox"] {
+				z-index: -1000;
+				pointer-events: none;
+			}
+		}
+	}
+
+	.input-helper {
+		display: flex;
+		width: 56.6%;
+		align-items: center;
+		position: relative;
+		@include breakpoint(large down) {
+			width: 100%;
+			width: calc(100% - 110px);
+		}
+		@include breakpoint(medium down) {
+			width: 100%;
+		}
+		input {
+			font-size: rem-calc(17);
+			font-family: $second-font;
+			color: $theme-darkest;
+			padding: rem-calc(5 15);
+			height: rem-calc(50);
+			border: none;
+			font-weight: 300;
+		}
+		.field {
+			position: inherit !important;
+			width: 100%;
+			margin-bottom: 0;
+			@include breakpoint(phone down) {
+				padding: rem-calc(0 25);
+			}
+		}
+	}
+	.input-box-helper {
+		position: absolute;
+		background-color: #152e46;
+		top: 0;
+		left: 0;
+		right: 48%;
+		bottom: 0;
+		transition: .3s ease-in-out;
+		overflow: hidden;
+		z-index: -1;
+		transform: translateX(101%);
+		padding: rem-calc(20 35);
+		overflow-y: auto;
+		@include breakpoint(medium down) {
+			transform: translateX(0);
+			padding: rem-calc(20 25);
+			left: 50%;
+			right: 0;
+			top: rem-calc(325);
+			opacity: 1 !important;
+		}
+		@include breakpoint(phone down) {
+			position: relative;
+			top: 0;
+			left: 0;
+			right: 0;
+			z-index: 9;
+			background-color: #f8f8f8;
+		}
+		&.showed {
+			transform: translateX(0);
+		}
+	}
+
+	.checkbox-helper {
+		.text {
+			color: #fff;
+			font-size: 13px;
+			text-align: justify;
+			@include breakpoint(phone down) {
+				color: $theme;
+			}
+		}
+		.square {
+			border-color: $theme-light !important;
+		}
+		.expand_text {
+			color: #fff !important;
+			@include breakpoint(phone down) {
+				color: $theme !important;
+			}
+		}
+	}
+
+	.fixedAfter {
+		label {
+			display: none;
+		}
+	}
+	.field {
+		position: relative;
+		.formError {
+			color: #F44336 !important;
+			position: absolute;
+			left: 0;
+			bottom: rem-calc(-15);
+			font-size: 14px;
+			padding-left: rem-calc(29);
+			@include breakpoint(tablet down) {
+				position: relative;
+				bottom: 0;
+				left: 0;
+			}
+		}
+	}
+	.input-helper {
+		.formError {
+			padding-left: 0;
+			position: absolute;
+			left: 0;
+			bottom: rem-calc(-20);
+			@include breakpoint(medium down) {
+				position: relative;
+				bottom: 0;
+				left: 0;
+			}
+		}
+	}
+
+	.form-content {
+		width: 90%;
+		padding: rem-calc(8 15 0 90);
+		@include breakpoint(tablet down) {
+			padding: rem-calc(10 0 0 25);
+		}
+		@include breakpoint(phone down) {
+			width: 100%;
+			padding: 0;
+		}
+		button {
+			cursor: pointer;
+			color: $white;
+			font-size: rem-calc(14);
+			font-weight: 300;
+			background: $theme;
+			transition: .3s ease-in-out;
+			height: rem-calc(50);
+			width: 16%;
+			min-width: rem-calc(110);
+			@include on-event() {
+				background-color: $theme-light;
+			}
+			@include breakpoint(medium down) {
+				width: 100%;
+				margin-top: rem-calc(5);
+			}
+			@include breakpoint(phone down) {
+				margin: rem-calc(0 25);
+			}
+		}
+	}
+
+	.msg-wrap {
+		width: 100%;
+		z-index: 1000;
+		position: relative;
+	}
+
+	.flex {
+		flex-wrap: wrap;
+	}
+}
+
+.agreement{
+	padding-top: 40px !important;
+	.formError {
+		font-size: 16px !important;
+		line-height: 18px !important;
+		color: red !important;
+		position: absolute !important;
+		bottom:100% !important;
+		top: auto !important;
+		padding-bottom: 5px;
+		@include breakpoint(large down) {
+			font-size: 15px !important;
+		}
+	}
+}

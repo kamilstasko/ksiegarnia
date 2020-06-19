@@ -1,0 +1,50 @@
+.articles-details--page {
+	padding-top: rem-calc(70);
+	@include breakpoint(tablet down) {
+		padding-top: rem-calc(20);
+		padding-bottom: rem-calc(30);
+	}
+	@include breakpoint(phone down) {
+		padding-bottom: 0;
+	}
+	.single-article {
+		.single-article__content {
+			padding: 0;
+		}
+		.single-article__data-bar {
+			&:after {
+				display: none;
+			}
+		}
+		.single-article__image--helper {
+			margin-top: rem-calc(20);
+		}
+	}
+	.section-with-video {
+		display: flex;
+		align-items: center;
+		@include breakpoint(medium down) {
+			display: block;
+		}
+		.login-form {
+			flex: 1 0 auto;
+			@include breakpoint(large down) {
+				max-width: 350px;
+			}
+			@include breakpoint(medium down) {
+				text-align: center;
+				max-width: 100%;
+				margin: rem-calc(10) 0;
+				.video-link {
+					display: inline-block;
+				}
+			}
+		}
+		.register-form {
+			padding-left: rem-calc(44);
+			@include breakpoint(medium down) {
+				padding-left: 0;
+			}
+		}
+	}
+}

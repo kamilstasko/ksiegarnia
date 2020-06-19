@@ -1,0 +1,1196 @@
+.cart-steps {
+	position: relative;
+	padding-bottom: rem-calc(48);
+	.flex-container {
+		display: flex;
+		justify-content: space-around;
+	}
+	&:after {
+		content: '';
+		display: inline-block;
+		width: 100%;
+		height: rem-calc(4);
+		position: absolute;
+		top: rem-calc(32);
+		left: 0;
+		background: $light-gray;
+		z-index: 0;
+		@include breakpoint(small down) {
+			top: rem-calc(23);
+		}
+	}
+	.step {
+		display: inline-block;
+		text-align: center;
+		position: relative;
+		z-index: 1;
+		font-weight: 400;
+		width: 33.333333%;
+		position: relative;
+		&:after {
+			content: '';
+			display: inline-block;
+			width: 100%;
+			height: rem-calc(4);
+			position: absolute;
+			top: rem-calc(32);
+			left: 0;
+			background: #99CEFF;
+			opacity: 0;
+			z-index: -1;
+			@include breakpoint(small down) {
+				top: rem-calc(23);
+			}
+		}
+	}
+	strong {
+		font-weight: inherit;
+	}
+	.num {
+		font-size: em(22);
+		color: $theme;
+		border: rem-calc(4) solid $light-gray;
+		border-radius: 50%;
+		width: rem-calc(65);
+		height: rem-calc(65);
+		padding: rem-calc(10);
+		display: inline-block;
+		background: $white;
+		font-family: $base-font-family;
+		@include breakpoint(small down) {
+			width: rem-calc(50);
+			height: rem-calc(50);
+			padding: rem-calc(2);
+		}
+		span {
+			height: 100%;
+			border-radius: inherit;
+			display: block;
+			text-align: center;
+			font-size: rem-calc(24);
+			line-height: 1.7;
+			@include breakpoint(small down) {
+				font-size: rem-calc(20);
+				line-height: 2;
+			}
+		}
+	}
+	.label {
+		font-size: rem-calc(24);
+		color: $theme;
+		padding-top: em(10, 20);
+		@include breakpoint(medium down) {
+			padding: 0;
+			font-size: rem-calc(19);
+		}
+		@include breakpoint(phone down) {
+			display: none;
+		}
+	}
+	.step.prev {
+		.num {
+			border-color: #99CEFF;
+		}
+		&:after {
+			opacity: 1;
+		}
+	}
+	.step.active {
+		.num {
+			border-color: $theme-light;
+		}
+		&:after {
+			opacity: 1;
+		}
+	}
+}
+
+.cardItems {
+	width: 100%;
+	font-weight: 400;
+	border-collapse: collapse;
+    .end-reservation-row {
+      background-color: #FF8866;
+    }
+	.reservation-row {
+		position: absolute;
+		width: 100%;
+		th {
+			position: absolute;
+			right: 0;
+			padding: rem-calc(18 10);
+			color: $dark-gray;
+			@include font(12, 15, 0);
+			font-family: $second-font;
+			span {
+				color: map-get($foundation-palette, alert);
+			}
+		}
+        .end-reservation {
+          color: #FFFF44;
+        }
+	}
+	.items-row {
+		border: 1px solid $light-gray;
+		td {
+			padding: rem-calc(18 10);
+		}
+	}
+	.image {
+		min-width: rem-calc(100);
+	}
+	.remove {
+		width: rem-calc(125);
+		@include breakpoint(medium down) {
+			display: none;
+		}
+		button {
+			//height: rem-calc(32);
+			display: block;
+			margin-top: rem-calc(18);
+			font-size: rem-calc(18);
+			font-family: $second-font;
+			font-weight: 700;
+			color: map-get($foundation-palette, alert);
+			text-transform: uppercase;
+			cursor: pointer;
+		}
+	}
+	.summary-row {
+		display: none;
+	}
+	.hidden {
+		color: $dark-gray;
+		@include font(12, 15, 0);
+		display: block;
+		padding: rem-calc(0 0 2 13);
+		font-family: $second-font;
+	}
+	.total-value-item {
+		//display: none;
+	}
+	.itemQuantity {
+		@include reset(number);
+		width: rem-calc(54);
+		color: $theme;
+		height: rem-calc(30);
+		font-size: rem-calc(18);
+		font-family: $second-font;
+		font-weight: 700;
+		text-align: center;
+		padding: 0;
+		line-height: 1;
+		margin-bottom: 0;
+	}
+	.itemQuantity-item {
+		@include reset(number);
+		width: rem-calc(54);
+		color: $theme;
+		height: rem-calc(20);
+		font-size: rem-calc(14);
+		font-family: $second-font;
+		font-weight: 700;
+		text-align: center;
+		padding: 0;
+		line-height: 1;
+		margin-bottom: 0;
+		display: inline-block;
+	}
+	.price {
+		width: rem-calc(130);
+		height: rem-calc(49);
+		span:last-child {
+			//display: block;
+			font-family: $second-font;
+			color: $theme-light;
+			font-size: rem-calc(18);
+			font-weight: 700;
+		}
+		@include breakpoint(medium down) {
+			display: none;
+		}
+		.hidden {
+			padding-left: rem-calc(1);
+		}
+		.promotion-price{
+			span {
+				color: $theme;
+				font-size: rem-calc(13) !important;
+				text-decoration: line-through;
+			}
+		}
+	}
+	.quantity {
+		width: rem-calc(125);
+		@include breakpoint(medium down) {
+			display: none;
+		}
+	}
+	.serial {
+		width: rem-calc(125);
+		span {
+			padding-left: 0;
+			display: block;
+		}
+		span:last-child {
+			//display: block;
+			font-family: $second-font;
+			color: $theme-light;
+			font-size: rem-calc(18);
+			font-weight: 700;
+		}
+	}
+	.reservation {
+		width: rem-calc(250);
+		@include breakpoint(medium down) {
+			display: none;
+		}
+		span {
+			padding-left: 0;
+			display: block;
+		}
+		span:last-child {
+			//display: block;
+			font-family: $second-font;
+			color: $theme-light;
+			font-size: rem-calc(18);
+			font-weight: 700;
+		}
+	}
+	.hide-for-tablet {
+		margin-top: rem-calc(5);
+		div {
+			font-size: rem-calc(14);
+			color: $theme;
+			line-height: 1.4;
+			font-family: $second-font;
+			.previous-price {
+				padding-left: rem-calc(10);
+				span {
+					font-size: rem-calc(10) !important;
+					text-decoration: line-through;
+				}
+			}
+		}
+	}
+	.details {
+		width: 50%;
+		font-size: rem-calc(17);
+		@include breakpoint(medium down) {
+			width: auto;
+			padding-top: 40px !important;
+		}
+		button {
+			color: map-get($foundation-palette, alert);
+			font-size: rem-calc(25);
+			margin-top: rem-calc(5);
+		}
+		p {
+			font-size: rem-calc(13);
+			padding-top: rem-calc(5);
+		}
+	}
+	.image {
+		text-align: center;
+		@include breakpoint(medium down) {
+			width: rem-calc(120);
+		}
+		@include breakpoint(phone down) {
+			width: rem-calc(80);
+		}
+	}
+	.name {
+		color: $theme;
+		font-size: rem-calc(28);
+		font-weight: 700;
+		@include breakpoint(phone down) {
+			font-size: rem-calc(18);
+			line-height: 1;
+		}
+	}
+	.variant {
+		font-size: rem-calc(12);
+		color: $theme;
+		font-weight: 500;
+		font-family: $second-font;
+	}
+	.total {
+		//display: none;
+	}
+}
+
+.summaryTable {
+	@include clearfix;
+	.summary {
+		border: 0;
+		padding: rem-calc(6) rem-calc(30);
+		float: right;
+		width: 360px;
+		max-width: 100%;
+		font-weight: 400;
+		@include breakpoint(medium down) {
+			width: 100%;
+			text-align: center;
+		}
+		&:last-child {
+			background: $theme;
+			color: $white;
+		}
+		.value {
+			font-size: rem-calc(30);
+			font-family: $second-font;
+			vertical-align: middle;
+			padding-left: rem-calc(10);
+			padding-bottom: rem-calc(3);
+			display: inline-block;
+		}
+	}
+}
+
+.user-is-logged-form {
+	max-width: 100% !important;
+	border: 1px solid $light-gray;
+	padding: rem-calc(rem-calc(75 15 80));
+	margin: rem-calc(40 0 100) !important;
+	@include breakpoint(medium down) {
+		padding: rem-calc(rem-calc(25 0 25));
+		margin: rem-calc(0 0 40) !important;
+	}
+	.form-component {
+		margin: 0 auto;
+		max-width: rem-calc(910);
+	}
+}
+
+.cartSettings {
+	font-weight: 400;
+	.heading {
+		padding: rem-calc(20 0 15);
+		font-family: $base-font-family;
+		font-size: rem-calc(30);
+		font-weight: 400;
+		color: $white;
+		@include breakpoint(tablet down) {
+			padding: 0;
+		}
+		&--border {
+			padding: em(20, 18) 0;
+			border-bottom: 1px solid $light-gray;
+		}
+
+		strong {
+			color: $white;
+			font-family: $base-font-family;
+			font-size: rem-calc(30);
+			font-weight: 400;
+		}
+	}
+	.square {
+		background-color: $theme;
+		overflow: hidden;
+		&:before {
+			color: $theme;
+			background-color: $white;
+			width: rem-calc(20);
+			padding-left: rem-calc(3);
+		}
+	}
+	.text {
+		color: $white;
+		font-family: $second-font;
+		font-size: rem-calc(15);
+		font-weight: 300;
+		strong {
+			font-weight: 300;
+		}
+	}
+	.paymentInfoText {
+		display: block;
+		width: 100%;
+		font-size: rem-calc(10);
+		line-height: 1.1;
+	}
+	.checkbox {
+		display: block;
+		font-size: rem-calc(15);
+	}
+	.dicount {
+		p {
+			line-height: 1.5;
+			color: $white;
+			font-family: $second-font;
+			padding-top: 1em;
+			font-size: rem-calc(15);
+			font-weight: 300;
+		}
+		.heading + p {
+			padding-top: 0;
+		}
+		label {
+			font-size: rem-calc(15);
+			font-weight: 300;
+		}
+		input[type=text] {
+			border-radius: 0;
+			margin-bottom: 0;
+			width: 55%;
+			@include breakpoint(small down) {
+				width: 100%;
+			}
+		}
+		.flex {
+			@include breakpoint(small down) {
+				flex-wrap: wrap;
+			}
+		}
+		.button {
+			width: 42.5%;
+			margin: 0;
+			height: rem-calc(41);
+			padding: rem-calc(5);
+			font-size: rem-calc(14);
+			color: $white;
+			@include breakpoint(tablet down) {
+				width: 45%;
+				margin-left: rem-calc(5);
+			}
+			@include breakpoint(small down) {
+				width: 100%;
+				margin: rem-calc(5 0 0 0);
+			}
+		}
+	}
+	.three-columns {
+		margin: rem-calc(52 0 25);
+		background: $theme-light;
+		display: flex;
+		justify-content: space-around;
+		@include breakpoint(tablet down) {
+			flex-wrap: wrap;
+			padding: rem-calc(30 15);
+		}
+		@include breakpoint(phone down) {
+			padding: rem-calc(10 0);
+		}
+		.box {
+			color: $white;
+			width: 33.3333333%;
+			position: relative;
+			padding: rem-calc(16 30 50);
+			@include breakpoint(tablet down) {
+				width: 100%;
+				padding: rem-calc(10);
+			}
+		}
+	}
+	.input-helper {
+		display: block;
+	}
+	.two-columns {
+		display: flex;
+		justify-content: space-around;
+		position: relative;
+		margin-bottom: rem-calc(55);
+		@include breakpoint(tablet down) {
+			flex-wrap: wrap;
+		}
+		.box {
+			position: relative;
+			float: left;
+			width: 46%;
+			@include breakpoint(large down) {
+				width: 48%;
+			}
+			@include breakpoint(tablet down) {
+				width: 100%;
+			}
+			.heading {
+				font-family: $second-font;
+				font-size: rem-calc(30);
+				color: $theme;
+				strong {
+					font-weight: 400;
+					color: $theme;
+				}
+			}
+			textarea {
+				height: rem-calc(150);
+				resize: none;
+			}
+			&.half {
+				.heading {
+					font-size: rem-calc(36);
+					color: $theme;
+				}
+				.error-reservation {
+					color: map_get($foundation-palette, alert);
+					margin-bottom: rem-calc(14);
+				}
+			}
+			@include breakpoint(medium down) {
+				width: 100%;
+			}
+			&.comments {
+				padding-left: rem-calc(30);
+				@include breakpoint(large down) {
+					padding: 0;
+				}
+			}
+		}
+	}
+	.total-summary {
+		.first {
+			padding: rem-calc(0 22 45);
+			@include clearfix;
+			@include breakpoint(large down) {
+				padding: rem-calc(15 0);
+			}
+			div {
+				font-family: $second-font;
+				font-size: rem-calc(14);
+				@include breakpoint(small down) {
+					width: 100%;
+				}
+				span {
+					margin-left: rem-calc(5);
+					color: $theme-light;
+					font-size: rem-calc(18);
+					font-weight: 500;
+				}
+			}
+		}
+		.second {
+			padding: rem-calc(25 15);
+			margin-right: rem-calc(24);
+			color: $white;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			position: relative;
+			background-color: $theme;
+			@include breakpoint(tablet down) {
+				margin-right: 0;
+			}
+			@include breakpoint(small down) {
+				flex-wrap: wrap;
+			}
+			.left-side {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				line-height: 1;
+				font-family: $second-font;
+				font-weight: 300;
+				font-size: rem-calc(14);
+				span {
+					white-space: nowrap;
+				}
+				.price {
+					color: $white;
+					font-size: rem-calc(16);
+					font-weight: 600;
+					line-height: 1;
+					padding-left: rem-calc(8);
+				}
+			}
+			.right-side {
+				width: 70%;
+				padding-right: rem-calc(35);
+				@include breakpoint(small down) {
+					width: 100%;
+					padding: 0;
+					margin-top: rem-calc(10);
+				}
+				.button {
+					width: 100%;
+					text-transform: uppercase;
+					padding: rem-calc(15);
+					background-color: $theme-light;
+				}
+			}
+			div {
+				display: inline-block;
+				vertical-align: middle;
+				@include breakpoint(small down) {
+					width: 100%;
+				}
+			}
+
+		}
+		.button {
+			margin: 0;
+			margin-left: rem-calc(20);
+
+			@include breakpoint(small down) {
+				width: 100%;
+				margin: rem-calc(5) 0;
+			}
+		}
+		.price {
+			font-weight: 400;
+			font-size: rem-calc(22);
+			color: $theme-light;
+			font-family: $second-font;
+		}
+	}
+}
+
+.shoppingCart {
+	padding: rem-calc(4) 0 0;
+	.cart-info {
+		margin-bottom: rem-calc(50);
+		font-family: $second-font;
+		text-align: inherit;
+		font-weight: 400;
+		line-height: 1.8;
+		color: #7b7b82;
+		p {
+			padding-top: rem-calc(10);
+			padding-bottom: rem-calc(10);
+			a {
+				color: $theme;
+				&:hover {
+					color: $theme-light;
+				}
+			}
+		}
+	}
+	.r-tabs-panel {
+		@include breakpoint(tablet down) {
+			padding-bottom: 30px;
+		}
+	}
+	.heading {
+		@include breakpoint(tablet down) {
+			margin-top: rem-calc(30);
+		}
+	}
+	.tabs-container {
+		@include breakpoint(tablet down) {
+			margin-bottom: rem-calc(100);
+		}
+		@include breakpoint(phone down) {
+			margin-bottom: rem-calc(50);
+		}
+		.section-title {
+			font-size: rem-calc(30);
+		}
+		.r-tabs-nav {
+			@include breakpoint(tablet down) {
+				display: none;
+			}
+		}
+		.r-tabs-accordion-title {
+			display: none;
+			background: $theme;
+			margin-bottom: 10px;
+			padding: rem-calc(15);
+			a {
+				display: block;
+				color: $white;
+			}
+			.lead {
+				display: block;
+			}
+			&.r-tabs-state-active {
+				color: $white;
+				background: darken($theme, 15);
+			}
+			@include breakpoint(tablet down) {
+				display: block;
+			}
+			.button {
+				display: none;
+			}
+		}
+		ul {
+			display: flex;
+			justify-content: space-between;
+			font-weight: 400;
+			margin: rem-calc(0 -20 60 -20);
+			@include breakpoint(large down) {
+				margin: rem-calc(0 -10 60 -10);
+			}
+			@include breakpoint(medium down) {
+				flex-wrap: wrap;
+				margin-bottom: rem-calc(30);
+			}
+			li {
+				display: block;
+				width: 33.33333%;
+				position: relative;
+				text-align: left;
+				@include breakpoint(medium down) {
+					width: 100%;
+					margin: rem-calc(5 0);
+				}
+				&.r-tabs-state-active {
+					a {
+						background-color: $theme;
+					}
+					.button {
+						border: 1px solid $white;
+					}
+				}
+			}
+			.lead {
+				display: block;
+				color: $white;
+				@include font(30, 30, -25);
+			}
+			a {
+				margin: rem-calc(0 20);
+				float: none;
+				display: block;
+				padding: rem-calc(45);
+				position: relative;
+				text-transform: none;
+				background: $theme-light;
+				@include breakpoint(large down) {
+					margin: rem-calc(0 10);
+					padding: rem-calc(45 25);
+				}
+				&:hover {
+					background-color: $theme;
+					.button {
+						border: 1px solid $white;
+					}
+				}
+				.description {
+					color: $white;
+				}
+				> span {
+					display: block;
+				}
+			}
+			.button {
+				background-color: $theme;
+				padding: rem-calc(14 40);
+				font-size: rem-calc(12);
+				margin-top: rem-calc(28);
+				font-size: rem-calc(14);
+				text-transform: uppercase;
+				border: 1px solid $theme;
+				color: $white;
+			}
+		}
+	}
+	.bottom-form {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		margin-bottom: rem-calc(65);
+		@include breakpoint(phone down) {
+			flex-wrap: wrap;
+			padding-bottom: rem-calc(30);
+		}
+		.button {
+			line-height: 1;
+			text-transform: uppercase;
+			font-size: rem-calc(14);
+			padding: rem-calc(14 75);
+			@include breakpoint(small down) {
+				width: 100%;
+			}
+		}
+	}
+	.tabContent {
+		border: 1px solid $light-gray;
+		padding-bottom: rem-calc(70);
+		margin-bottom: rem-calc(110);
+		@include breakpoint(tablet down) {
+			padding-bottom: rem-calc(20);
+			margin-bottom: rem-calc(30);
+		}
+	}
+	.reginEncourage {
+		@include breakpoint(medium down) {
+			padding: rem-calc(0 15);
+		}
+		span {
+			display: block;
+			color: $theme;
+			@include breakpoint(small down) {
+				font-size: rem-calc(13);
+			}
+			a {
+				color: $theme-light;
+			}
+		}
+	}
+	.form-container {
+		margin: 0 auto;
+		max-width: rem-calc(910);
+		.formError {
+			color: map_get($foundation-palette, alert);
+		}
+		.square {
+			border: 1px solid #e2e2e2;
+			background-color: $white;
+			overflow: hidden;
+			&:before {
+				background-color: $theme-light;
+				padding-left: rem-calc(2);
+				width: rem-calc(20);
+			}
+		}
+		.header {
+			display: block;
+			width: 100%;
+			font-size: rem-calc(48);
+			text-align: center;
+			margin: rem-calc(25 0 40);
+			color: $theme;
+			font-weight: 700;
+			@include breakpoint(medium down) {
+				font-size: rem-calc(35);
+				margin: rem-calc(20 0);
+			}
+			@include breakpoint(phone down) {
+				font-size: rem-calc(26);
+			}
+		}
+		.form-content {
+			@include breakpoint(tablet down) {
+				padding: rem-calc(0 15);
+			}
+			.buttons {
+				display: flex;
+				justify-content: space-between;
+				margin-top: rem-calc(30);
+				@include breakpoint(medium down) {
+					flex-wrap: wrap;
+				}
+			}
+			.button {
+				display: block;
+				line-height: 1;
+				text-transform: uppercase;
+				font-size: rem-calc(14);
+				padding: rem-calc(14 40);
+				@include breakpoint(small down) {
+					width: 100%;
+				}
+				.icon {
+					display: none;
+				}
+			}
+		}
+		.form-partial {
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			.field--with-label {
+
+				label {
+					display: none;
+				}
+			}
+			.text {
+				font-family: $second-font;
+				font-weight: 300;
+			}
+			.input {
+				width: 48.5%;
+				@include breakpoint(medium down) {
+					width: 100%;
+				}
+				&.checkbox {
+					width: 100%;
+					label {
+						display: flex;
+					}
+				}
+				input {
+					margin-bottom: 0;
+					padding: rem-calc(5 30);
+					font-family: $second-font;
+					font-size: rem-calc(15);
+					font-weight: 300;
+					color: $theme;
+					@include breakpoint(small down) {
+						padding: rem-calc(5 15);
+					}
+				}
+				.field {
+					margin-bottom: rem-calc(22);
+				}
+			}
+		}
+		.section-title {
+			width: 100%;
+			font-size: rem-calc(25);
+			color: $theme;
+		}
+	}
+	.summary-table {
+		display: none;
+	}
+}
+
+.summary-view {
+	.info {
+		font-weight: 400;
+		color: $theme;
+		margin-bottom: rem-calc(10);
+		.title {
+			font-size: rem-calc(30);
+			margin-bottom: em(20, 30);
+		}
+		p {
+			margin: rem-calc(3) 0;
+		}
+	}
+
+	.cardItems {
+		&.summary-table {
+			display: flex;
+			justify-content: flex-end;
+			padding: rem-calc(25 0);
+		}
+		.details {
+			@include breakpoint(tablet up) {
+				width: 49%;
+			}
+		}
+		.quantity {
+			input {
+				border: none;
+				pointer-events: none;
+				padding: 0;
+				background: none;
+				display: inline-block;
+			}
+		}
+		.price span:last-child {
+			color: $theme;
+		}
+		.total span:last-child {
+			color: $theme-light;
+		}
+		.remove {
+			display: none;
+		}
+		.total {
+			display: table-cell;
+			@include breakpoint(medium down) {
+				display: none;
+			}
+		}
+		.summary-label {
+			text-align: right;
+			font-size: rem-calc(13);
+		}
+		.summary-label + td {
+			text-transform: uppercase;
+			padding: rem-calc(5) rem-calc(20);
+		}
+		button {
+			@include breakpoint(medium down) {
+				display: none;
+			}
+		}
+		.summary-row {
+			display: table-row;
+			font-size: rem-calc(16);
+			font-family: $second-font;
+			font-weight: 300;
+			&--blue {
+				td {
+					&:first-child {
+						@include breakpoint(phone up) {
+							padding-left: rem-calc(200) !important;
+						}
+					}
+					background-color: $theme;
+					color: $white !important;
+					padding: rem-calc(25 5 25 15) !important;
+				}
+			}
+			.summary-price {
+				padding: rem-calc(9 5 9 15);
+				color: $theme-light;
+				font-weight: 600;
+				width: rem-calc(140);
+				@include breakpoint(phone down) {
+					width: rem-calc(120);
+				}
+			}
+		}
+		.total-value-item {
+			@include breakpoint(medium down) {
+				display: block;
+			}
+		}
+	}
+	.summaryTable > .summary {
+		display: none;
+	}
+	.summary-box {
+		font-weight: 400;
+		display: flex;
+		justify-content: space-between;
+		margin: rem-calc(55) 0;
+		color: $theme;
+		@include breakpoint(phone down) {
+			flex-wrap: wrap;
+			margin: rem-calc(0 0 25);
+		}
+		&__title {
+			color: $theme;
+			font-family: $base-font-family;
+			font-size: rem-calc(24);
+			font-weight: 600;
+			padding-right: rem-calc(15);
+			@include breakpoint(small down) {
+				font-size: rem-calc(22);
+				padding: 0;
+				display: block;
+				width: 100%;
+			}
+		}
+		div {
+			background: #f3f3f3;
+			padding: rem-calc(35 40);
+			width: 100%;
+			@include breakpoint(medium down) {
+				padding: rem-calc(10);
+			}
+			@include breakpoint(phone down) {
+				width: 100%;
+				margin: rem-calc(10) 0;
+			}
+			p, b {
+				font-weight: 300;
+				font-size: rem-calc(15);
+				font-family: $second-font;
+				color: $dark-gray;
+
+			}
+		}
+	}
+}
+
+.finalized-view {
+	.top-info {
+		font-size: rem-calc(36);
+		background: $theme-light;
+		text-align: center;
+		color: $white;
+		font-weight: 400;
+		padding: rem-calc(52 10);
+		@include breakpoint(tablet down) {
+			font-size: rem-calc(30);
+		}
+		@include breakpoint(medium down) {
+			font-size: rem-calc(20);
+		}
+		.icon {
+			padding-right: rem-calc(25);
+			font-size: rem-calc(40);
+			vertical-align: text-bottom;
+			color: $white;
+			@include breakpoint(tablet down) {
+				padding-right: rem-calc(10);
+			}
+			@include breakpoint(medium down) {
+				font-size: rem-calc(28);
+			}
+			@include breakpoint(phone down) {
+				display: none;
+			}
+		}
+	}
+	.finalized-info {
+		text-align: center;
+		margin: rem-calc(60 0 65);
+		@include breakpoint(medium down) {
+			margin: rem-calc(20) 0;
+		}
+		p {
+			margin: 0;
+			color: $dark-gray;
+			font-weight: 300;
+			font-family: $second-font;
+			font-size: rem-calc(15);
+			&:first-child {
+				color: #7b7e80;
+				font-weight: 700;
+				font-size: rem-calc(25);
+				@include breakpoint(medium down) {
+					line-height: 1.2;
+				}
+				b {
+					color: $theme-light;
+				}
+			}
+		}
+	}
+	.payment-info {
+		width: 100%;
+		background: #f3f3f3;
+		padding: rem-calc(50 45);
+		font-family: $second-font;
+		color: $theme;
+		font-size: rem-calc(15);
+		font-weight: 300;
+		margin-bottom: rem-calc(40);
+		@include breakpoint(medium down) {
+			margin-bottom: rem-calc(10);
+			padding: rem-calc(10);
+		}
+	}
+	.payment-bottom {
+		position: relative;
+		padding: rem-calc(17 0 85 43);
+		display: flex;
+		font-family: $second-font;
+		font-weight: 300;
+		font-size: rem-calc(14);
+		color: $theme;
+		align-items: center;
+		justify-content: space-between;
+		@include breakpoint(medium down) {
+			flex-wrap: wrap;
+			justify-content: center;
+			padding: rem-calc(15 10 40 10);
+		}
+		@include breakpoint(medium down) {
+			text-align: center;
+		}
+		p {
+			margin: 0;
+			@include breakpoint(medium down) {
+				display: block;
+				float: none !important;
+				width: 100%;
+				margin-bottom: rem-calc(15);
+			}
+		}
+		p a {
+			text-decoration: underline;
+			font-weight: 700;
+			transition: .2s ease-in-out;
+			@include breakpoint(small down) {
+				display: block;
+			}
+			&:hover {
+				color: $theme-light;
+			}
+		}
+		.button {
+			margin: 0;
+			padding: rem-calc(14 75);
+			text-transform: uppercase;
+			font-size: rem-calc(14);
+			font-family: $base-font-family;
+			@include breakpoint(medium down) {
+				float: none !important;
+			}
+		}
+	}
+}
+
+.shopCart:not(.r-tabs) {
+	pointer-events: none;
+}

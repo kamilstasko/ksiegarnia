@@ -1,0 +1,200 @@
+.stepper-slider {
+	position: relative;
+	.slider-helper {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		position: relative;
+		@include breakpoint(medium down) {
+			flex-wrap: wrap;
+		}
+		.slider-head {
+			position: absolute;
+			top: rem-calc(110);
+			left: 0;
+			right: 0;
+			max-width: rem-calc(1135);
+			padding: rem-calc(0 15);
+			margin: 0 auto;
+			font-size: rem-calc(30);
+			color: $dark-gray;
+			display: block;
+			line-height: 1.2;
+			z-index: 2;
+			@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+				left: 20% !important;
+			}
+			@include breakpoint(tablet down) {
+				top: rem-calc(40);
+				left: rem-calc(50);
+			}
+			@include breakpoint(medium down) {
+				top: 0;
+				left: 0;
+				right: 0;
+				padding: rem-calc(19 15);
+			}
+			span {
+				display: block;
+				width: 100%;
+				color: $theme;
+				font-size: rem-calc(48);
+				text-transform: uppercase;
+			}
+		}
+		.swiper-container {
+			width: 50%;
+			overflow: visible !important;
+			@include breakpoint(medium down) {
+				width: 100%;
+				padding-top: rem-calc(200);
+				background-color: rgba($white, .8);
+			}
+			.swiper-content {
+				padding-right: rem-calc(130);
+				text-align: right;
+				@include breakpoint(large down) {
+					padding: rem-calc(0 40 0 15);
+				}
+				@include breakpoint(medium down) {
+					padding: rem-calc(0 60 0 15);
+				}
+				.swiper-head {
+					font-size: rem-calc(36);
+					font-weight: 700;
+					color: $theme-light;
+					opacity: 0;
+					transform: translateX(15px);
+					transition: .2s ease-in-out;
+					line-height: 1.1;
+					@include breakpoint(phone down) {
+						font-size: rem-calc(25);
+					}
+					span {
+						position: relative;
+						&:before {
+							content: '';
+							position: absolute;
+							top: 50%;
+							right: 108%;
+							right: calc(100% + 20px);
+							width: 0;
+							transition: .3s ease-in-out;
+							height: rem-calc(1);
+							background-color: $theme-light;
+							transition-delay: .2s;
+						}
+					}
+					&.active {
+						transform: translateX(0);
+						opacity: 1;
+						span {
+							&:before {
+								width: rem-calc(800);
+							}
+						}
+					}
+				}
+				.swiper-desc {
+					font-family: $second-font;
+					font-size: rem-calc(15);
+					font-weight: 300;
+					color: $dark-gray;
+					opacity: 0;
+					transform: translateX(15px);
+					transition: .2s ease-in-out;
+					padding-top: rem-calc(20);
+					max-width: rem-calc(420);
+					float: right;
+					@include breakpoint(tablet down) {
+						padding-bottom: rem-calc(50);
+					}
+					@include breakpoint(phone down) {
+						max-width: 100%;
+						color: $theme-dark;
+						br {
+							display: none;
+						}
+					}
+					&.active {
+						transform: translateX(0);
+						opacity: 1;
+					}
+				}
+			}
+		}
+		.swiper-pagination {
+			position: absolute;
+			left: 52%;
+			top: 50%;
+			width: rem-calc(50);
+			transform: translate(-50%, -50%);
+			display: flex;
+			flex-direction: column;
+			@include breakpoint(medium down) {
+				top: rem-calc(15);
+				left: auto;
+				right: rem-calc(15);
+				transform: translate(0);
+				width: rem-calc(40);
+			}
+			@include breakpoint(phone down) {
+				width: rem-calc(30);
+			}
+			span {
+				display: block;
+				background-color: $theme;
+				width: 100%;
+				height: rem-calc(50);
+				border: 1px solid $light-gray;
+				border-radius: 0;
+				margin-bottom: rem-calc(10);
+				opacity: 1 !important;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: rem-calc(24);
+				line-height: 1;
+				color: $white;
+				@include breakpoint(medium down) {
+					height: rem-calc(40);
+					font-size: rem-calc(17);
+				}
+				@include breakpoint(phone down) {
+					height: rem-calc(30);
+					font-size: rem-calc(14);
+					margin-bottom: rem-calc(5);
+				}
+				&.swiper-pagination-bullet-active {
+					background: rgb(102, 135, 23);
+					background: -moz-linear-gradient(top, rgba(102, 135, 23, 1) 0%, rgba(129, 171, 47, 1) 100%);
+					background: -webkit-linear-gradient(top, rgba(102, 135, 23, 1) 0%, rgba(129, 171, 47, 1) 100%);
+					background: linear-gradient(to bottom, rgba(102, 135, 23, 1) 0%, rgba(129, 171, 47, 1) 100%);
+					filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#668717', endColorstr='#81ab2f', GradientType=0);
+				}
+			}
+		}
+		.stepper-slider-right-image {
+			height: rem-calc(600);
+			width: 48%;
+			overflow: hidden;
+			@include breakpoint(medium down) {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				width: 100%;
+				height: auto;
+			}
+			.image {
+				width: 100%;
+				height: 100%;
+				transform: scale(1.014);
+				background-position: center;
+				background-size: cover;
+				background-repeat: no-repeat;
+			}
+		}
+	}
+}

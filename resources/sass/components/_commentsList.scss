@@ -1,0 +1,121 @@
+.comments-list-container{
+    float:left;
+    width: 100%;
+
+    margin-top:25px;
+    padding-top:25px;
+    border-top:1px solid #dbdbdb;
+
+
+    .title{
+        color: #000;
+        font-size: 21px;
+        margin-bottom:15px;
+        font-family:$body-font-family;
+        text-transform: uppercase;
+    }
+
+    .comments-list{
+        margin: 0;
+        padding: 0;
+        float:left;
+        width: 100%;
+        list-style-type: none;
+
+        li{
+            float:left;
+            width:100%;
+
+            &+li{
+                margin-top:15px;
+                padding-top:15px;
+                border-top:1px solid #dbdbdb;
+            }
+        }
+
+        .star{
+            cursor:default !important;
+        }
+
+        .comment-list-item{
+            float:left;
+            width: 100%;
+
+            &.inactive{
+                opacity:0.5;
+            }
+
+            &.disabled{
+                opacity:0.5;
+                cursor: not-allowed;
+
+                > *{
+                    pointer-events:none;
+                }
+            }
+
+            &__title{
+                color:#000;
+                font-size:17px;
+                font-weight:500;
+            }
+
+            &__author{
+                font-size:12px;
+                font-style:italic;
+            }
+
+            &__content{
+                color: #484848;
+            }
+
+            &__rating-stars{
+                float:left;
+                width:100%;
+                display:flex;
+                margin-bottom:10px;
+                justify-content:flex-start;
+    
+                label{
+                    font-size:20px;
+                    margin-right:5px;
+                    cursor:pointer;
+                    
+                    input{
+                        opacity:0;
+                        z-index:-1;
+                        position:absolute;
+                        pointer-events:none;
+                    }
+                    span{
+                        color:#e68a00;
+                        transition:all 0.25s ease-in-out;
+    
+                    }
+                    &.active{
+                        ~ label{
+                            span{
+                                color:#f2f2f2 !important;
+                            }
+
+                            &.active{
+                                span{
+                                    color:#e68a00 !important;
+                                }
+                            }
+                        }
+                    }
+    
+    
+                }
+            }
+    
+            &__content{
+                float:left;
+                width:100%;
+                font-size:15px;
+            }
+        }
+    }
+    
+}

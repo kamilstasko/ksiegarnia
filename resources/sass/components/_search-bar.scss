@@ -1,0 +1,188 @@
+.phone-flex {
+	display: flex;
+	width: 70%;
+	justify-content: space-between;
+	@include breakpoint(tablet down) {
+		width: auto;
+	}
+	> div {
+		@include breakpoint(phone down) {
+			margin: rem-calc(0 5);
+		}
+	}
+}
+
+#search-form {
+	background-color: transparent !important;
+	min-width: rem-calc(1200);
+	@include breakpoint(1250 down) {
+		min-width: 100%;
+	}
+	.fancybox-close-small {
+		display: none !important;
+	}
+	.search {
+		width: 100%;
+		position: relative;
+		input {
+			width: 100%;
+			border: none;
+			border-bottom: 1px solid $white;
+			color: $white;
+			font-size: 33px;
+			padding: rem-calc(15 25);
+			height: 65px;
+			line-height: 1;
+			font-weight: 300;
+			@include breakpoint(tablet down) {
+				height: auto;
+				padding: rem-calc(10);
+			}
+		}
+		button {
+			position: absolute;
+			top: 50%;
+			right: 0;
+			color: $white;
+			font-size: rem-calc(26);
+			transform: translateY(-50%);
+			cursor: pointer;
+			@include breakpoint(tablet down) {
+				font-size: rem-calc(20);
+			}
+		}
+	}
+}
+
+.search-bar {
+	width: rem-calc(460);
+	margin: rem-calc(0 10 0 35);
+	font-family: $second-font;
+	font-size: rem-calc(13);
+	color: $theme;
+	@include breakpoint(large down) {
+		margin: 0;
+	}
+	@include breakpoint(medium down) {
+		width: auto;
+		margin: 0 !important;
+	}
+	.search-trigger {
+		display: block;
+		width: 100%;
+		padding: rem-calc(10 30 8);
+		margin-top: rem-calc(-10);
+		border-bottom: 1px solid $light-gray;
+		position: relative;
+		cursor: pointer;
+		@include breakpoint(medium down) {
+			border-bottom: none;
+			padding: rem-calc(1 7);
+			margin-top: rem-calc(8);
+		}
+		&:before {
+			content: "";
+			left: 0;
+			right: 0;
+			width: 100%;
+			height: 1px;
+			bottom: -1px;
+			background: $theme;
+			position: absolute;
+			transform: scale(0);
+			transition: all 0.25s ease-in-out;
+			@include breakpoint(medium down) {
+				display: none;
+			}
+		}
+		.text-name {
+			@include breakpoint(medium down) {
+				display: none;
+			}
+		}
+		.icon {
+			position: absolute;
+			top: rem-calc(10);
+			right: rem-calc(13);
+			font-size: rem-calc(22);
+			transition: .2s ease-in-out;
+			@include breakpoint(medium down) {
+				position: relative;
+				top: auto;
+				right: auto;
+			}
+		}
+		&:hover {
+			&:before {
+				transform: scale(1);
+			}
+		}
+	}
+	button {
+		top: 0;
+		bottom: 0;
+		right: 14px;
+		margin: auto;
+		cursor: pointer;
+		color: #5f6062;
+		position: absolute;
+		@include breakpoint(tablet down) {
+			font-size: 20px;
+		}
+	}
+
+	@include breakpoint(tablet down) {
+		margin: rem-calc(0 30 0 0);
+		.rwdHelper {
+			display: block;
+			font-size: 20px;
+		}
+		.inputHelper {
+			left: 0;
+			right: 0;
+			opacity: 0;
+			width: 100%;
+			top: 163px;
+			z-index: -1000;
+			pointer-events: none;
+			position: fixed;
+			background: $theme-dark;
+			transition: all 0.25s ease-in-out;
+			input {
+				height: 65px;
+				font-size: 25px;
+				border-left: 0;
+				border-right: 0;
+				border-color: #5f6062;
+			}
+		}
+
+		&.act {
+			.inputHelper {
+				opacity: 1;
+				z-index: 100;
+				pointer-events: auto;
+			}
+		}
+	}
+	@include breakpoint(medium down) {
+		margin: rem-calc(10 0);
+	}
+}
+
+.sticky {
+	.search-bar {
+		@include breakpoint(medium down) {
+			.search-trigger {
+				margin-top: 0;
+			}
+		}
+		@include breakpoint(tablet down) {
+			&.act {
+				.inputHelper {
+					top: 58px;
+				}
+			}
+		}
+	}
+}

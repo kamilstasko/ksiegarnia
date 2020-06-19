@@ -1,0 +1,204 @@
+.register_view {
+	.text-replace{
+		margin: rem-calc(220 0 265);
+	}
+	.wrapper--helper {
+		border: 1px solid $light-gray;
+		margin-top: rem-calc(25);
+		padding-top: rem-calc(60);
+		margin-bottom: rem-calc(42);
+		position: relative;
+		@include breakpoint(medium down) {
+			margin-top: 0;
+			padding: rem-calc(20 15 0);
+			margin-bottom: rem-calc(20);
+		}
+	}
+	.form-content {
+		font-weight: 400;
+		max-width: rem-calc(910);
+		margin: rem-calc(45) auto rem-calc(25);
+		@include breakpoint(medium down) {
+			margin: rem-calc(20) auto rem-calc(15);
+		}
+		.register-form__body {
+			display: flex;
+			justify-content: space-between;
+			.register_content {
+				width: 100%;
+			}
+			@include breakpoint(phone down) {
+				flex-wrap: wrap;
+			}
+			input, textarea {
+				color: $dark-gray;
+				font-family: $second-font;
+				font-size: rem-calc(15) !important;
+				font-weight: 300;
+				margin-top: rem-calc(7);
+				padding: rem-calc(5 30);
+				@include breakpoint(medium down) {
+					padding: rem-calc(5 15);
+				}
+			}
+			textarea {
+				height: rem-calc(186);
+				padding: rem-calc(15 30);
+				margin-bottom: 0;
+				resize: none;
+				@include breakpoint(medium down) {
+					padding: rem-calc(15);
+				}
+			}
+			.field {
+				margin-bottom: 0;
+				padding-bottom: rem-calc(16);
+				position: relative;
+				.field {
+					margin: 0;
+					padding: 0;
+				}
+				.formError {
+					position: absolute;
+					left: 0;
+					bottom: rem-calc(-2);
+					color: map-get($foundation-palette, alert);
+				}
+			}
+		}
+		.square {
+			background-color: $white;
+			border: 1px solid $dark-gray;
+			&:before {
+				color: $theme-light;
+			}
+		}
+		label {
+			display: none;
+		}
+		.agreements {
+			label {
+				display: flex;
+			}
+			.formError {
+				color: map-get($foundation-palette, alert);
+			}
+		}
+		.form-error {
+			margin: 0;
+		}
+		.button {
+			margin: rem-calc(10 0);
+			padding: rem-calc(14 82);
+			text-transform: uppercase;
+			font-size: rem-calc(14);
+			.icon {
+				display: none;
+			}
+		}
+	}
+	.title {
+		color: $theme;
+		font-weight: 700;
+		@include font(48, 50, 0);
+		@include breakpoint(medium down) {
+			@include font(35, 35, 0);
+		}
+		@include breakpoint(phone down) {
+			@include font(27, 27, 0);
+		}
+	}
+	.form-content .buttons {
+		text-align: center;
+		padding-left: 0;
+	}
+}
+
+.register-boxes {
+	display: flex;
+	flex-wrap: wrap;
+	.register-box {
+		width: 33.333333%;
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		padding: 60px 0;
+		background: $theme-light;
+		@include breakpoint(large down) {
+			justify-content: flex-start;
+			width: 100%;
+			padding: rem-calc(20) 0;
+			padding-left: 34vw;
+		}
+		@include breakpoint(tablet down) {
+			padding-left: 28vw;
+		}
+		@include breakpoint(medium down) {
+			padding-left: 17vw;
+		}
+		@include breakpoint(phone down) {
+			padding: 20px rem-calc(40);
+		}
+		@include breakpoint(small down) {
+			padding: 20px;
+		}
+		&__content {
+			color: $white;
+			@include font(13, 22, 25);
+			padding-left: rem-calc(15);
+			line-height: 1.4;
+			font-weight: 300;
+			font-family: $second-font;
+			@include breakpoint(medium down) {
+				min-width: rem-calc(180);
+			}
+			@include breakpoint(small down) {
+				@include font(13, 18, 25);
+			}
+			* {
+				font-family: $second-font;
+				font-weight: 300;
+				@include font(13, 22, 25);
+				@include breakpoint(small down) {
+					@include font(13, 18, 25);
+				}
+			}
+			b {
+				font-weight: 500;
+				&.special {
+					@include breakpoint(phone down) {
+						display: block;
+					}
+				}
+			}
+			h3 {
+				margin-bottom: 0;
+				font-weight: 600;
+			}
+			a {
+				transition: .2s ease-in-out;
+			}
+		}
+		&__icon {
+			margin-top: rem-calc(5);
+			border: 1px solid $white;
+			padding: rem-calc(15);
+			font-size: rem-calc(25);
+			line-height: 1;
+			color: $white;
+			text-align: center;
+			@include breakpoint(phone down) {
+				padding: rem-calc(5);
+				font-size: rem-calc(20);
+			}
+		}
+	}
+}
+
+.gmap-container {
+	position: relative;
+	margin-bottom: rem-calc(45);
+	#osmMap {
+		height: rem-calc(492);
+	}
+}

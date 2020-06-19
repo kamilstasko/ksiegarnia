@@ -1,0 +1,147 @@
+.account-view {
+	@include clearfix;
+	margin: rem-calc(25 0 80);
+	@include breakpoint(phone down) {
+		margin: rem-calc(25 0 40);
+	}
+	p{
+		color: #fff;
+	}
+	.forget {
+		@include breakpoint(tablet down) {
+			display: block;
+			padding: 0;
+			margin: 15px 3px;
+		}
+	}
+	.section-title {
+		margin-bottom: rem-calc(25);
+	}
+	.flex {
+		flex-direction: column;
+		align-items: center;
+		//align-items: unset;
+		@include breakpoint(tablet down) {
+			flex-wrap: wrap;
+		}
+	}
+	.account-form {
+		border: 1px solid $light-gray;
+		border-right: none;
+		width: 33.5%;
+		@include breakpoint(tablet down) {
+			border: 0;
+		}
+		@include breakpoint(medium down) {
+			margin-top: rem-calc(90);
+		}
+		.form-component {
+			background: $theme-light;
+			padding: rem-calc(53 47);
+			@include breakpoint(medium down) {
+				padding: rem-calc(20);
+			}
+			.alert {
+				left: 0;
+				color: #fff;
+			}
+			.formError {
+				position: absolute;
+				right: 0;
+				bottom: rem-calc(-2);
+				color: #fff;
+			}
+		}
+		label {
+			color: #fff;
+		}
+		.input {
+			border: none;
+			width: 100%;
+			input {
+				font-family: $second-font;
+				color: $dark-gray;
+				font-size: rem-calc(15);
+				padding-left: rem-calc(25);
+			}
+			:disabled {
+				pointer-events: none;
+			}
+		}
+		.form-check {
+			label {
+				display: inline;
+				font-size: rem-calc(20);
+				color: rgba(255, 255, 255, 0.6);
+			}
+		}
+		.field {
+			margin-bottom: rem-calc(24);
+		}
+		.msg-wrap {
+			margin-top: 0;
+		}
+		.verify_button{
+			padding: 0;
+			color: $white;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			width: 100%;
+			padding-top: rem-calc(8);
+			padding-bottom: rem-calc(12);
+			@include breakpoint(phone down) {
+				flex-wrap: wrap;
+			}
+			a {
+				margin-bottom: 0;
+				padding: rem-calc(13 28);
+				width: 100%;
+			}
+		}
+		.buttons {
+			padding: 0;
+			color: $white;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			width: 100%;
+			padding-top: rem-calc(8);
+			padding-bottom: rem-calc(12);
+			@include breakpoint(phone down) {
+				flex-wrap: wrap;
+			}
+			a {
+				text-decoration: underline;
+				color: rgba($white, .6);
+				transition: .2s ease-in-out;
+				@include breakpoint(small down) {
+					width: 100%;
+				}
+				&:hover {
+					color: $theme;
+				}
+			}
+			button {
+				margin-bottom: 0;
+				padding: rem-calc(13 28);
+				width: 100%;
+			}
+		}
+		.heading {
+			font-size: rem-calc(48);
+			color: $white;
+			padding-bottom: rem-calc(37);
+			@include breakpoint(phone down) {
+				padding-bottom: rem-calc(15);
+				font-size: rem-calc(40);
+			}
+		}
+		.section-title {
+			color: $white;
+		}
+		@include breakpoint(tablet down) {
+			width: 100%;
+		}
+	}
+}

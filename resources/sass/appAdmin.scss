@@ -1,0 +1,36 @@
+//----------------------------------*\
+// SETTINGS
+//----------------------------------*/
+@charset "UTF-8";
+
+//----------------------------------*\
+// FRAMEWORKS
+//----------------------------------*/
+
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+@import '~datatables.net-bs4/css/dataTables.bootstrap4.min.css';
+
+//----------------------------------*\
+// COMPONENTS
+//----------------------------------*/
+
+@import "admin/variables.scss";
+
+// Import Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+// Import Custom SB Admin 2 Mixins and Components
+@import "admin/mixins.scss";
+@import "admin/global.scss";
+@import "admin/utilities.scss";
+
+// Custom Components
+@import "admin/dropdowns.scss";
+@import "admin/navs.scss";
+@import "admin/buttons.scss";
+@import "admin/cards.scss";
+@import "admin/charts.scss";
+@import "admin/login.scss";
+@import "admin/error.scss";
+@import "admin/footer.scss";
+@import "admin/admin";

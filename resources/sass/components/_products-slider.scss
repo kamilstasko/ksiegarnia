@@ -1,0 +1,189 @@
+.products-slider {
+	padding-top: rem-calc(115);
+	padding-bottom: rem-calc(30);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	@include breakpoint(medium down) {
+		padding-top: rem-calc(10);
+	}
+	.flex {
+		padding-bottom: rem-calc(85);
+		@include breakpoint(medium down) {
+			flex-wrap: wrap;
+			padding-bottom: rem-calc(20);
+		}
+		.header {
+			padding-left: rem-calc(95);
+			text-transform: uppercase;
+			font-size: rem-calc(48);
+			line-height: 1;
+			color: $theme;
+			@include breakpoint(medium down) {
+				padding-left: 0;
+				width: 100%;
+			}
+			span {
+				color: $theme;
+				font-size: rem-calc(30);
+				line-height: 1;
+				text-transform: none;
+				display: block;
+			}
+		}
+		.button {
+			margin: rem-calc(8 50 0 10);
+			padding: rem-calc(15 34);
+			@include breakpoint(medium down) {
+				margin: rem-calc(10 0);
+			}
+		}
+	}
+	&-content {
+		padding: rem-calc(0 39 50 70) !important;
+		@include breakpoint(large down) {
+			padding: rem-calc(0 0 50 0) !important;
+		}
+		@include breakpoint(medium down) {
+			padding: 0 !important;
+		}
+		.product-item {
+			.product-container {
+				padding-bottom: rem-calc(85);
+				position: relative;
+				border: none;
+			}
+		}
+		.card {
+			position: initial !important;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			background: rgb(102, 135, 23);
+			background: -moz-linear-gradient(top, rgba(102, 135, 23, 1) 0%, rgba(129, 171, 47, 1) 100%);
+			background: -webkit-linear-gradient(top, rgba(102, 135, 23, 1) 0%, rgba(129, 171, 47, 1) 100%);
+			background: linear-gradient(to bottom, rgba(102, 135, 23, 1) 0%, rgba(129, 171, 47, 1) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#668717', endColorstr='#81ab2f', GradientType=0);
+			min-height: rem-calc(230);
+			.image {
+				width: auto;
+				position: absolute;
+				//bottom: rem-calc(5);
+				left: rem-calc(9);
+				@include breakpoint(medium down) {
+					height: 100% !important;
+				}
+				img {
+					@include breakpoint(phone down) {
+						max-height: 100%;
+					}
+				}
+			}
+			.bottom {
+				width: 60%;
+				padding: rem-calc(10 10 10 0);
+				@include breakpoint(1270 down) {
+					width: calc(100% - 120px);
+					min-height: rem-calc(260);
+					padding-top: rem-calc(35);
+				}
+				.title {
+					line-height: 1.2;
+					justify-content: flex-start;
+					align-items: flex-end;
+					text-align: left;
+					font-weight: 500;
+					color: $white;
+					padding: 0;
+					font-size: rem-calc(24);
+				}
+				.variants {
+					padding: rem-calc(15 0 0 0);
+					text-align: left;
+					span {
+						margin: rem-calc(0 2 2 2);
+						border-color: #87aa3e !important;
+						color: #bdd194;
+						display: block;
+						text-align: left;
+						&.active {
+							background-color: $white;
+							border-color: $white !important;
+							color: $theme-darkest;
+						}
+					}
+				}
+				.price {
+					display: flex;
+					color: #bdd194;
+					flex-wrap: wrap;
+					align-items: center;
+					justify-content: flex-start;
+					padding: rem-calc(18 0 27 10);
+					font-family: $second-font;
+					.promoted-price {
+						width: 100%;
+						justify-content: flex-start;
+						display: flex;
+						align-items: center;
+					}
+					.previous-price {
+						width: 100%;
+						justify-content: flex-start;
+						padding-top: rem-calc(5);
+						display: flex;
+						align-items: center;
+						.price-second {
+							font-size: rem-calc(14);
+							text-decoration: line-through;
+							color: #dcdcdc;
+							font-weight: 500;
+						}
+					}
+					&-first {
+						font-size: rem-calc(12);
+						color: #bdd194;
+						line-height: 1;
+					}
+					&-second {
+						line-height: 1;
+						font-size: rem-calc(20);
+						margin-left: rem-calc(8);
+						color: $white;
+						font-weight: 700;
+					}
+				}
+			}
+		}
+
+		.swiper-button {
+			background-image: none;
+			z-index: 99;
+			height: auto;
+			top: 34%;
+			@include breakpoint(large down) {
+				display: none !important;
+			}
+			.icon {
+				color: $theme;
+				font-size: rem-calc(38);
+				@include breakpoint(tablet down) {
+					font-size: rem-calc(30);
+				}
+			}
+			&-disabled {
+				opacity: .6;
+			}
+			&-next {
+				right: rem-calc(0);
+				left: auto;
+			}
+			&-prev {
+				left: rem-calc(30);
+				right: auto;
+				transform: rotate(180deg);
+			}
+		}
+	}
+}

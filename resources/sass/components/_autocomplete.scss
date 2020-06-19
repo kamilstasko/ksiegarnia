@@ -1,0 +1,44 @@
+.response-autocomplete {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background-color: #fff;
+  z-index: 2;
+  padding: rem-calc(10) 0;
+  transform-origin: top;
+  transition: .3s ease-in-out;
+  border-top: 1px solid #f9f9f9;
+  box-shadow: 0 14px 40px -14px rgba(0, 0, 0, 0.5);
+  min-width: 300px;
+  @include breakpoint(phone down) {
+    min-width: 100%;
+  }
+  &.hidden {
+    transform: scaleY(0);
+    opacity: 0;
+    box-shadow: none;
+  }
+  &__item {
+    &__link {
+      transition: .3s ease-in-out;
+      @include font(13, 15, 0);
+      display: block;
+      padding: rem-calc(5) rem-calc(15);
+      cursor: pointer;
+      @include on-event() {
+        background-color: $theme;
+        color: #fff;
+      }
+      @include breakpoint(small down) {
+        @include font(12, 15, 0);
+      }
+      &.category {
+        padding-left: rem-calc(40);
+      }
+    }
+  }
+}
+
+.autocomplete--helper {
+  position: relative;
+}

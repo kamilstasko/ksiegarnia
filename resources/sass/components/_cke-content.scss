@@ -1,0 +1,33 @@
+.cke-content {
+	@include font(14, 24, 0);
+	width: 100%;
+	max-width: 550px;
+	color: #332b2b;
+	font-weight: 400;
+	text-align: center;
+	margin: 0px auto;
+	h1 {
+		@include font(21, 28, 0);
+		font-weight: 700;
+		color: #939393;
+		margin-bottom: rem-calc(18);
+		@include breakpoint(phone down) {
+			@include font(18, 24, 0);
+		}
+	}
+	*, p, ul, li {
+		@include font(14, 24, 0);
+		color: #484848;
+	}
+	strong {
+		font-weight: 500;
+		color: #2f2d2c;
+	}
+	a {
+		transition: .3s linear;
+		color: $theme;
+		@include on-event() {
+			color: $theme-hover;
+		}
+	}
+}

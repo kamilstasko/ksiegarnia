@@ -1,0 +1,53 @@
+.layout-column {
+    width: 100%;
+    @include breakpoint(tablet down) {
+        flex-wrap: wrap;
+        display: flex;
+    }
+    .column {
+        &:first-child {
+            width: 70.80%;
+            float: left;
+            @include breakpoint(tablet down) {
+                width: 100%;
+                order: 1;
+                float: none;
+                margin-top: rem-calc(40);
+            }
+            @include breakpoint(phone down) {
+                margin-top: rem-calc(20);
+            }
+        }
+        &:nth-child(2) {
+            width: 26.666%;
+            float: right;
+            @include breakpoint(tablet down) {
+                width: 100%;
+                order: 0;
+                float: none;
+            }
+        }
+    }
+    &.layout-column--inverted {
+        .column {
+            &:first-child {
+                width: 26.666%;
+                @include breakpoint(tablet down) {
+                    width: 100%;
+                    order: 0;
+                    margin-top: 0;
+                }
+                @include breakpoint(phone down) {
+                    margin-top: 0;
+                }
+            }
+            &:nth-child(2) {
+                width: 70.80%;
+                @include breakpoint(tablet down) {
+                    width: 100%;
+                    order: 1;
+                }
+            }
+        }
+    }
+}

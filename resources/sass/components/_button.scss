@@ -1,0 +1,156 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+.button {
+	color: #fff;
+	font-weight: 500;
+	position: relative;
+	overflow: hidden;
+	background: $theme;
+	display: inline-block;
+	font-size: rem-calc(17);
+	transition: all .2s ease-in-out;
+	padding: rem-calc(15 15 15 42);
+	border: 2px solid $theme;
+	@include breakpoint(small down) {
+		padding: rem-calc(12 12 12 32);
+		font-size: rem-calc(14);
+	}
+	.icon {
+		vertical-align: bottom;
+		margin-left: rem-calc(10);
+		font-size: rem-calc(20);
+		transition: all .2s ease-in-out;
+	}
+	&.type {
+		&-2 {
+			background: #a9a9aa;
+			border-color: #a9a9aa;
+
+			i {
+				transform: rotate(180deg);
+				margin-right: 15px;
+				margin-left: 0;
+			}
+		}
+	}
+
+	@include on-event() {
+		color: $theme;
+		background-color: rgba($theme, .2);
+		.icon {
+			color: $theme;
+		}
+	}
+
+	&.white-hover {
+		@include on-event() {
+			color: $white;
+			.icon {
+				color: $white;
+			}
+		}
+	}
+	&.no-hover {
+		@include on-event() {
+			color: $white !important;
+			.icon {
+				color: $white !important;
+			}
+			background-color: $theme !important;
+		}
+	}
+	&--white {
+		border: 1px solid $light-gray;
+		background-color: $white;
+		color: $theme;
+	}
+	&-smaller {
+		padding: em(14, 14) em(20, 14);
+	}
+	&.primary.tiny {
+		&:after {
+			transform: rotate(-90deg) translateX(-3px);
+		}
+	}
+	&--no-icon {
+		.icon {
+			display: none;
+		}
+	}
+	.icon {
+		font-size: rem-calc(18);
+		color: #d3d3d3;
+	}
+	&.gray {
+		background-color: #d4d4d4;
+		border-color: #d4d4d4;
+		color: #252525;
+		@include on-event() {
+			background-color: $theme-hover;
+		}
+	}
+	&.blue {
+		background-color: $theme;
+		color: #ffffff;
+		@include on-event() {
+			background-color: $theme-hover;
+		}
+		.icon {
+			color: #fff;
+			margin-bottom: rem-calc(2);
+		}
+	}
+	&.pad{
+		padding:  rem-calc(15);
+		margin: 0;
+	}
+	&.ttu {
+		text-transform: uppercase;
+	}
+	&--long {
+		padding: rem-calc(14 50);
+		font-size: rem-calc(14);
+	}
+	&.red {
+		background-color: #F44336;
+		border-color: red;
+	}
+	&.bigger {
+		padding: rem-calc(17) rem-calc(27);
+	}
+	&.bigger-2x {
+		padding: rem-calc(24) rem-calc(65);
+		@include breakpoint(phone down) {
+			padding: rem-calc(20) rem-calc(25);
+		}
+	}
+	&.smaller {
+		padding: rem-calc(10);
+		font-size: rem-calc(11);
+	}
+	&.font-bigger {
+		font-size: rem-calc(16);
+		@include breakpoint(phone down) {
+			font-size: rem-calc(15);
+		}
+	}
+	&.button-with-icon {
+		.icon {
+			font-size: rem-calc(8);
+			margin-bottom: rem-calc(1);
+		}
+	}
+
+	&.grey-transparent {
+		width: 100%;
+		margin-top: 3px;
+		border-color: #282727;
+		background-color: transparent;
+
+		&:hover {
+			color: #fff;
+			background-color: #282727;
+		}
+	}
+}

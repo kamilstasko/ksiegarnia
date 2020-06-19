@@ -1,0 +1,134 @@
+.error-page {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 99999999999;
+	text-align: center;
+	&:before {
+		content: '';
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: $white;
+	}
+	.main-header__logotype {
+		margin-top: rem-calc(100);
+		@include breakpoint(phone down) {
+			margin-top: rem-calc(30);
+		}
+	}
+	.error-image {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		transform: scale(1.01);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		transition: .2s linear;
+		z-index: 999;
+	}
+	.errore-page__content {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 50%;
+		width: 100%;
+		max-width: rem-calc(1369);
+		background-color: rgba($white, .3);
+		border-right: 1px solid rgba($white, .4);
+		border-left: 1px solid rgba($white, .4);
+		height: 100vh;
+		transition: .6s ease-in-out;
+		transform: translateX(-50%);
+		z-index: 9999;
+		@include breakpoint(phone down) {
+		    background-color: transparent;
+		}
+	}
+	.books{
+		position: absolute;
+		top: 60%;
+		transform: translateY(-50%);
+		left: 0;
+		right: 0;
+		z-index: -1;
+		animation: booksPulse 2s infinite;
+		@keyframes booksPulse {
+			0%{transform: translateY(-50%) scale(1);}
+			10%{transform: translateY(-50%) scale( 0.9 ); }
+			20%{transform: translateY(-50%) scale( 1 ); }
+			21% { transform: translateY(-50%) scale(1) rotate(-1deg);}
+			25% { transform: translateY(-50%) scale(1.05) rotate(1deg); }
+			30% { transform: translateY(-50%) scale(1.025) rotate(-1deg); }
+			45% { transform: translateY(-50%) scale(1.1) rotate(1deg); }
+			80% { transform: translateY(-50%) scale(1); }
+			100% { transform: translateY(-50%) scale(1); }
+		}
+		@include breakpoint(phone down) {
+			img{
+				max-width: rem-calc(85);
+			}
+		}
+		img{
+			width: 40%;
+		}
+	}
+	.errore__helper {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		right: 14%;
+		z-index: 1;
+		@include breakpoint(tablet down) {
+			left: 0;
+			right: 0;
+		}
+		@include breakpoint(phone down) {
+			padding: rem-calc(5);
+		}
+		.errore {
+			display: inline;
+			@include font(222, 222, 0);
+			color: $theme;
+			animation: errore 5s infinite;
+			z-index: 2;
+			@include breakpoint(phone down) {
+				@include font(120, 120, 0);
+			}
+			span {
+				font-weight: 600;
+				@include font(200, 222, 0);
+				display: inline;
+				@include breakpoint(phone down) {
+					@include font(110, 110, 0);
+				}
+			}
+		}
+		span {
+			color: $theme;
+			display: block;
+			@include font(20, 25, 0);
+			z-index: 2;
+			@include breakpoint(small down) {
+				font-size: rem-calc(15);
+			}
+		}
+		.text{
+			color: $white;
+			font-weight: 600;
+		}
+		a {
+			color: $theme;
+			transition: .2s ease-in-out;
+			@include on-event() {
+				color: $white;
+				text-decoration: underline;
+			}
+		}
+	}
+}

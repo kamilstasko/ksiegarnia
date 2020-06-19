@@ -1,0 +1,113 @@
+.about-us-section {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+	//padding-top: rem-calc(75);
+	@include breakpoint(tablet down) {
+		//padding-top: rem-calc(35);
+	}
+	@include breakpoint(medium down) {
+		//padding-top: rem-calc(20);
+	}
+	.about-us {
+		&-left {
+			width: 52%;
+			height: rem-calc(605);
+			overflow: hidden;
+			@include breakpoint(tablet down) {
+				width: 50%;
+			}
+			@include breakpoint(medium down) {
+				width: 100%;
+			}
+			&-image {
+				width: 100%;
+				height: 100%;
+				background-position: center;
+				background-size: cover;
+				background-repeat: no-repeat;
+				transform: scale(1.006);
+			}
+		}
+		&-right {
+			width: 42.5%;
+			padding-right: rem-calc(15);
+			@include breakpoint(tablet down) {
+				width: 47%;
+			}
+			@include breakpoint(medium down) {
+				width: 100%;
+				position: absolute;
+				transform: translateY(-50%);
+				top: 50%;
+				left: 0;
+				right: 0;
+				background-color: rgba($white, .7);
+				width: 100%;
+				padding: rem-calc(15 15 5);
+				text-align: center;
+			}
+			&.fullwidth {
+				width: 100%;
+				padding: rem-calc(0 15);
+			}
+			&-head {
+				font-size: rem-calc(30);
+				color: $theme;
+				max-width: rem-calc(430);
+				@include breakpoint(medium down) {
+					max-width: 100%;
+				}
+				@include breakpoint(phone down) {
+					font-size: rem-calc(24);
+				}
+				span {
+					font-size: rem-calc(48);
+					text-transform: uppercase;
+					display: block;
+					width: 100%;
+					line-height: 1;
+					@include breakpoint(phone down) {
+						font-size: rem-calc(33);
+					}
+				}
+			}
+			&-desc {
+				display: block;
+				width: 90%;
+				padding: rem-calc(15 0);
+				font-size: rem-calc(15);
+				font-family: $second-font;
+				color: $theme-dark;
+				line-height: 1.4;
+				max-width: rem-calc(430);
+				@include breakpoint(medium down) {
+					max-width: 100%;
+				}
+				@include breakpoint(phone down) {
+					font-size: rem-calc(14);
+				}
+				p {
+					font-family: $second-font;
+					color: $theme-dark;
+					line-height: 1.4;
+				}
+				@include breakpoint(tablet down) {
+					width: 100%;
+				}
+			}
+			.button {
+				margin-top: rem-calc(20);
+				font-weight: 400;
+				font-size: rem-calc(14);
+				padding: rem-calc(14 34) !important;
+				text-transform: uppercase;
+				@include breakpoint(phone down) {
+					margin-top: 0;
+				}
+			}
+		}
+	}
+}

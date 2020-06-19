@@ -1,0 +1,47 @@
+.pnotify-material-error {
+	background-color: map_get($foundation-palette, alert) !important;
+}
+
+.pnotify-material-success {
+	background-color: map_get($foundation-palette, success) !important;
+}
+
+.pnotify-material-info {
+	background-color: map_get($foundation-palette, secondary) !important;
+	color: $white !important;
+}
+
+.ui-pnotify {
+	@include breakpoint(small down) {
+		left: rem-calc(5) !important;
+		right: rem-calc(5) !important;
+	}
+
+
+	&-container {
+		@include breakpoint(small down) {
+			padding: rem-calc(10) !important;
+			width: calc(100% - 5px) !important;
+			min-width: calc(100% - 5px) !important;
+			max-width: calc(100% - 5px) !important;
+			.ui-pnotify-text {
+				font-size: rem-calc(14) !important;
+			}
+		}
+	}
+}
+
+.ui-pnotify-container{
+	&:before{
+		content: '✖';
+		position: absolute;
+		top: 3px;
+		cursor: pointer;
+		right: 10px;
+		color: #ffffff;
+		font-size: 20px;
+		&:hover{
+			opacity: 0.6;
+		}
+	}
+}

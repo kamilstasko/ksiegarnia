@@ -1,0 +1,73 @@
+.fancybox-skin {
+	border-radius: 0 !important;
+	background: $theme !important;
+}
+
+.fancybox-close {
+	right: 0 !important;
+	top: 0 !important;
+	width: 40px !important;
+	height: 40px !important;
+	background: $theme !important;
+	text-align: center;
+	@include on-event() {
+		&:before {
+			color: lighten($theme,55);
+		}
+	}	
+	&:before {
+		content: "\00D7";
+		@include font(40,40);
+		color: #fff;
+		transition: .3s;
+	}
+}
+
+.fancybox-nav {
+	&:before {
+		content: "\203A";
+		@include font(40,40);
+		color: #fff;
+		transition: .3s;
+		width: 40px !important;
+		height: 40px !important;
+		background: $theme;
+		text-align: center;
+	}
+	@include on-event() {
+		&:before {
+			color: lighten($theme,55);
+		}
+	}
+}
+
+.fancybox-nav span {
+	display: none;
+}
+
+.fancybox-nav.fancybox-prev {
+	&:before {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%) rotate(180deg);
+		right: auto;
+		left: -10px !important;
+	}	
+}
+
+.fancybox-nav.fancybox-next {
+	&:before {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		left: auto;
+		right: -10px !important;
+	}	
+}
+
+.fancybox-slide--iframe .fancybox-content {
+	@include breakpoint(phone down) {
+		width: 96% !important;
+		max-width: calc(100% - 20px) !important;
+	}
+}

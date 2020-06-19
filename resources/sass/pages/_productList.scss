@@ -1,0 +1,630 @@
+.product-list {
+	@include reset;
+	display: flex;
+	flex-wrap: wrap;
+	//min-height: rem-calc(1000);
+}
+
+body.show-filter {
+	header {
+		transform: translateY(-100%);
+	}
+}
+
+.column-view {
+	@include clearfix;
+	padding-bottom: rem-calc(20);
+	.msg-wrap {
+		width: 100%;
+		margin: rem-calc(15);
+		a {
+			color: $white;
+		}
+	}
+	.product-list-contonent {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+	.left-side {
+		width: 25%;
+		@include breakpoint(tablet down) {
+			width: 33%;
+		}
+		@include breakpoint(medium down) {
+			width: 100%;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: rem-calc(57);
+			z-index: 15;
+			overflow-x: hidden;
+			overflow-y: auto;
+			background: $white;
+			opacity: 0;
+			visibility: hidden;
+			.show-filter & {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+		@include breakpoint(phone down) {
+			bottom: rem-calc(54);
+		}
+	}
+	.right-side {
+		width: 75%;
+		@include breakpoint(tablet down) {
+			width: 67%;
+		}
+		@include breakpoint(medium down) {
+			width: 100%;
+			padding-top: rem-calc(10);
+		}
+	}
+	.product-list-title {
+		font-weight: 500;
+		color: #5e6d78;
+		font-size: rem-calc(28);
+		line-height: 1.2;
+	}
+	.input-helper {
+		background-color: $theme;
+		text-align: center;
+		transition: .2s ease-in-out;
+		@include on-event() {
+			background-color: #99bb22;
+		}
+		label {
+			padding: rem-calc(3 13);
+			font-size: rem-calc(14);
+			font-family: $second-font;
+			font-weight: 300;
+			margin: 0;
+			color: $white;
+		}
+	}
+	.input-helper input:checked + label:before {
+		background: $white;
+		color: $theme;
+	}
+	.side-box {
+		margin-bottom: rem-calc(22);
+		background: $theme-light;
+		padding: rem-calc(50 35);
+		@include breakpoint(tablet down) {
+			padding: rem-calc(20 15);
+		}
+		@include breakpoint(medium down) {
+			margin-bottom: 0;
+		}
+		.heading .section-title {
+			color: $white;
+			text-transform: none;
+			font-weight: 300;
+			font-size: rem-calc(28);
+			margin-bottom: rem-calc(10);
+		}
+		nav {
+			@include reset;
+			border-bottom: 1px solid rgba($light-gray, .5);
+			padding-bottom: rem-calc(40);
+			ul {
+				list-style-type: none;
+				margin: 0;
+				li {
+					li {
+						margin-left: rem-calc(15);
+					}
+				}
+			}
+			a {
+				display: block;
+				font-weight: 300;
+				color: $white;
+				font-size: rem-calc(15);
+				position: relative;
+				padding-left: rem-calc(32);
+				margin-bottom: rem-calc(6);
+				font-family: $second-font;
+				&:before {
+					position: absolute;
+					left: rem-calc(2);
+					top: rem-calc(3);
+					content: '';
+					display: inline-block;
+					border-radius: 50%;
+					width: rem-calc(17);
+					height: rem-calc(17);
+					border: 2px solid rgba(#fff, 0.5);
+				}
+				&:after {
+					content: '';
+					width: rem-calc(7);
+					height: rem-calc(7);
+					position: absolute;
+					left: rem-calc(7);
+					top: rem-calc(8);
+					background: $white;
+					border-radius: 50%;
+					opacity: 0;
+				}
+				&.active {
+					font-weight: 700;
+					&:after {
+						opacity: 1;
+					}
+					&:before {
+						border-color: $white;
+					}
+				}
+			}
+		}
+		.filter-box {
+			@include clearfix;
+			border-bottom: 1px solid rgba($light-gray, .5);
+			padding-bottom: rem-calc(30);
+			margin: rem-calc(20 0);
+			li {
+				margin-right: rem-calc(25);
+				color: #7b7b82;
+			}
+			.w100p {
+				li {
+					width: 100% !important;
+				}
+			}
+			.search-params-scroll{
+				max-height: rem-calc(200);
+				overflow-x: auto;
+				ul {
+					li {
+						display: grid;
+					}
+				}
+			}
+			.filter-list {
+				@include reset;
+				&--taste {
+					display: block;
+					border-bottom: 1px solid rgba($light-gray, .5);
+					padding-bottom: rem-calc(20);
+					margin-bottom: rem-calc(20);
+				}
+				&--size {
+					margin-top: rem-calc(10);
+					.field {
+						margin-bottom: 0;
+					}
+					.square {
+						width: rem-calc(17);
+						height: rem-calc(17);
+						overflow: hidden;
+						background-color: $theme;
+						&:before {
+							top: 0;
+							left: 0;
+							right: 0;
+							bottom: 0;
+							width: rem-calc(17);
+							padding-left: rem-calc(2);
+							height: rem-calc(23);
+						}
+					}
+					.text {
+						font-weight: 300;
+						font-family: $second-font;
+						color: $white;
+						line-height: 1.5;
+						font-size: rem-calc(15) !important;
+					}
+					input {
+						position: absolute;
+						left: rem-calc(-10000);
+						top: 0;
+						opacity: 0;
+						height: 0;
+						width: 0;
+						&:checked {
+							& + .square {
+								&:before {
+									background-color: $white;
+									color: $theme;
+								}
+							}
+						}
+					}
+					li {
+						margin: 0 5px 5px 0;
+						display: inline-block;
+						float: none;
+						width: auto;
+					}
+				}
+				input:checked + label {
+					background-color: $white !important;
+					color: $theme !important;
+				}
+			}
+		}
+	}
+	.wipe {
+		color: $white;
+		text-decoration: underline;
+		white-space: nowrap;
+		cursor: pointer;
+		transition: .2s ease-in-out;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+	.irs-with-grid {
+		margin-top: 5px;
+	}
+	.sort-box {
+		width: 100%;
+		display: flex;
+		justify-content: flex-end;
+		padding: 0 rem-calc(1) rem-calc(15);
+		margin: 0 0 rem-calc(10);
+		@include breakpoint(small down) {
+			flex-wrap: wrap;
+		}
+		.select-helper {
+			width: 100%;
+			max-width: rem-calc(170);
+			@include breakpoint(small down) {
+				max-width: 100%;
+			}
+		}
+	}
+	.selected-filter-list {
+		padding: rem-calc(10) rem-calc(22);
+		font-weight: 400;
+		@include clearfix;
+		margin-bottom: rem-calc(15);
+		.wipe {
+			vertical-align: top;
+			padding: 2px 0;
+			display: inline-block;
+			transition: .2s ease-in-out;
+			@include breakpoint(tablet down) {
+				white-space: nowrap;
+				margin-top: 10px;
+			}
+		}
+		.current-filter {
+			margin: rem-calc(5) 0;
+			float: left;
+			font-size: rem-calc(14);
+			color: #7b7b82;
+			margin-right: rem-calc(33);
+			@include breakpoint(tablet down) {
+				margin: 5px 0;
+				width: 100%;
+			}
+			.label {
+				font-family: $second-font;
+			}
+			a {
+				background: #1d1d1d;
+				color: $white;
+				padding: em(3, 14) em(11, 14);
+				margin-left: em(9, 14);
+				cursor: pointer;
+			}
+			.x {
+				color: $white;
+				padding-left: .5em;
+			}
+		}
+	}
+}
+
+.product-item {
+	float: left;
+	text-align: center;
+	width: 33.333333%;
+	max-height: rem-calc(600);
+	@include breakpoint(tablet down) {
+		width: 50%;
+	}
+	@include breakpoint(small down) {
+		width: 100%;
+	}
+	.product-container {
+		display: block;
+		transition: .2s ease-in-out;
+		position: relative;
+		height: 100%;
+		border: 1px solid #ebeaeb;
+		&.pointer {
+			cursor: pointer;
+		}
+		@include on-event() {
+			border-color: $theme;
+		}
+		@include breakpoint(small down) {
+			margin: 0;
+		}
+	}
+	span, strong {
+		display: block;
+		text-align: center;
+	}
+	.image {
+		//padding: rem-calc(30) rem-calc(5) rem-calc(10);
+		padding: rem-calc(7);
+		position: relative;
+		>img {
+			display: inline-block;
+			@include breakpoint(phone down) {
+				max-height: 150px;
+			}
+		}
+		.my-slider {
+			width: rem-calc(100);
+			height: rem-calc(140);
+		}
+
+	}
+	.variants {
+		padding: rem-calc(18 5 12);
+	}
+	.variant-size {
+		display: inline-block;
+		border: 1px solid $light-gray;
+		padding: rem-calc(3 8);
+		cursor: pointer;
+		font-size: rem-calc(12);
+		font-family: $second-font;
+		transition: .2s ease-in-out;
+		&.active {
+			color: $white;
+			background: $theme;
+			border-color: $theme;
+		}
+	}
+	.variant-item {
+		display: inline-block;
+		padding: rem-calc(3 8);
+		cursor: pointer;
+		font-size: rem-calc(12);
+		font-family: $second-font;
+		transition: .2s ease-in-out;
+	}
+	.card {
+		position: relative;
+		height: 100%;
+	}
+	.bottom {
+		position: relative;
+		margin: 0 !important;
+		width: 100%;
+		margin-top: rem-calc(30);
+		@include breakpoint(tablet down) {
+			margin-top: rem-calc(15);
+		}
+		.title {
+			color: $theme;
+			//hyphens: auto;
+			transition: .2s ease-in-out;
+			@include font(28, 28, 0);
+			padding: 0 rem-calc(20);
+			display: flex;
+			align-items: center;
+			width: 100%;
+			font-weight: 700;
+			text-align: center;
+			justify-content: center;
+		}
+	}
+	.button {
+		display: inline-block;
+		transition: .2s ease-in-out;
+		margin: 15px 0 0 0;
+		text-align: center;
+		.icon {
+			vertical-align: initial;
+			padding: 0;
+		}
+		@include breakpoint(medium down) {
+			display: none;
+		}
+	}
+	.price-box {
+		padding: rem-calc(20 5 50);
+		transition: .2s ease-in-out;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		.price-first {
+			font-size: rem-calc(12);
+			color: $dark-gray;
+			font-family: $second-font;
+			font-weight: 300;
+			padding-right: rem-calc(8);
+			line-height: 1;
+		}
+		.price-second {
+			font-size: rem-calc(20);
+			color: $theme-light;
+			font-family: $second-font;
+			font-weight: 700;
+			line-height: 1;
+		}
+		.promoted-price {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			.price-second {
+				text-decoration: none;
+			}
+		}
+		.previous-price {
+			width: 100%;
+			padding-top: rem-calc(6);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			.price-first {
+				font-size: rem-calc(11);
+				padding-right: rem-calc(4);
+				text-decoration: none;
+			}
+			.price-second {
+				font-size: rem-calc(12);
+				color: $theme-dark;
+				text-decoration: line-through;
+			}
+		}
+		small {
+			font-size: 1em;
+		}
+	}
+
+	&__flags {
+		position: absolute;
+		left: rem-calc(5);
+		top: rem-calc(5);
+		right: rem-calc(5);
+		z-index: 2;
+		width: calc(100% - 60px);
+
+		.flag {
+			color: $white;
+			@include font(11, 11, 11);
+			font-weight: 300;
+			font-family: $second-font;
+			padding: rem-calc(5 10);
+			text-transform: uppercase;
+			transition: .2s ease-in-out;
+			float: left;
+			margin: rem-calc(0 5 5 0);
+			background: red;
+			&.new {
+				background: $theme-violet;
+			}
+			&.bestseller {
+				background: $theme-light;
+			}
+			&.sellout {
+				background: $dark-gray;
+			}
+			&.recommended {
+				background: $theme;
+			}
+		}
+	}
+}
+
+#showFilters {
+	padding: rem-calc(14 30) !important;
+}
+
+.close-filters {
+	display: none;
+	background: $theme;
+	z-index: 16;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	position: fixed;
+	text-align: center;
+	button {
+		background-color: $theme-light;
+		padding: rem-calc(14 30) !important;
+	}
+	.show-filter & {
+		display: block;
+	}
+	.button {
+		margin: rem-calc(4 0);
+	}
+}
+
+//.category-noproduct-preface{
+//	color: #fff;
+//	display: inline-block;
+//	height: 100%;
+//	background: $theme;
+//	padding: 30px;
+//	text-align: center;
+//	margin-left: 10px;
+//}
+
+.irs{
+	height: 55px !important;
+}
+
+.irs-with-grid{
+	margin-top:5px !important;
+}
+
+.irs-with-grid {
+	margin-top: 5px !important;
+}
+
+.irs-bar {
+	background: #fff !important;
+	border-color: rgba(#fff,.5) !important;
+}
+
+.irs-from, .irs-to, .irs-single {
+	background: $theme !important;
+	&:after {
+		border-top-color: $theme !important;
+	}
+}
+.irs-line{
+	background: $theme !important;
+	border-color: $theme !important;
+}
+.irs-handle i{
+	background: $theme !important;
+	border: none !important;
+	width: 4px !important;
+	height: 150% !important;
+	top: -25% !important;
+}
+.irs-grid{
+	display: none !important;
+}
+
+.irs--flat .irs-from:before, .irs--flat .irs-to:before, .irs--flat .irs-single:before {
+	display: none !important;
+}
+
+.product-filter {
+	.buttons {
+		padding: 0;
+		color: $white;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		padding-top: rem-calc(8);
+		padding-bottom: rem-calc(12);
+		@include breakpoint(phone down) {
+			flex-wrap: wrap;
+		}
+		a {
+			text-decoration: underline;
+
+			transition: .2s ease-in-out;
+			@include breakpoint(small down) {
+				width: 100%;
+			}
+			&:hover {
+				color: $theme;
+			}
+		}
+		button {
+			margin-bottom: 0;
+			padding: rem-calc(13 28);
+		}
+	}
+}

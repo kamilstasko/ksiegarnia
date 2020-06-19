@@ -1,0 +1,22 @@
+.msg-wrap {
+	width: 100%;
+	margin: 15px 0;
+}
+
+.msg {
+	display: block;
+	font-weight: 500;
+	color: $white;
+	background: $theme;
+	text-align: center;
+	padding: rem-calc(15);
+	@include font(13, 16, 0);
+	&--error, &.msgError {
+		background: map-get($foundation-palette, alert);
+		color: $white;
+	}
+	&--success, &.msgSuccess {
+		background: map-get($foundation-palette, success);
+		color: $white;
+	}
+}

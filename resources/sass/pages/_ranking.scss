@@ -1,0 +1,53 @@
+.ranking-page {
+  .ranking-table {
+    .table--helper {
+      overflow-x: auto;
+      padding: 0 0.5%;
+    }
+    table, tbody {
+      width: 99%;
+      border-collapse: collapse;
+      tr {
+        &:nth-child(even) {
+          td {
+            background-color: #eeebe6;
+          }
+        }
+        &:nth-child(1), &:nth-child(2) {
+          td {
+            background: #bd8f3e;
+            color: #ffffff;
+            font-weight: 500;
+          }
+        }
+      }
+      td {
+        padding: rem-calc(5) rem-calc(15);
+        text-align: center;
+        @include font(12, 14, 0);
+        border: 1px solid #e2e2e2;
+        color: #272626;
+      }
+    }
+    .get-all-ranking {
+      margin-top: rem-calc(30);
+      margin-bottom: rem-calc(40);
+      display: table;
+      margin-left: auto;
+      margin-right: 0;
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        .icon {
+          color: $theme;
+          margin-right: rem-calc(10);
+          font-size: rem-calc(30);
+        }
+        span {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
